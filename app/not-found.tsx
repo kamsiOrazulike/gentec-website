@@ -1,27 +1,14 @@
-// app/not-found.tsx
+import Image from "next/image";
 import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-50 to-gray-100">
-      <div className="max-w-2xl px-8 py-12 bg-white rounded-lg shadow-xl">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-50 to-gray-100 pt-28">
+      <div className="max-w-2xl px-8 pb-8 bg-white rounded-lg shadow-xl">
         <div className="text-center">
           {/* Corporate Logo Icon */}
-          <div className="inline-block p-4 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl">
-            <svg
-              className="w-12 h-12 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-              />
-            </svg>
+          <div className="inline-block p-4">
+            <Image src="/logo2.svg" alt="logo" width={30} height={30} />
           </div>
 
           {/* Error Message */}
@@ -41,7 +28,7 @@ export default function NotFound() {
               support team at{" "}
               <a
                 href="mailto:support@gentec.com"
-                className="text-blue-600 hover:text-blue-700 font-medium"
+                className="text-red-600 hover:text-red-700 font-medium"
               >
                 support@gentec.com
               </a>
@@ -52,7 +39,7 @@ export default function NotFound() {
           <div className="mt-8 space-x-4">
             <Link
               href="/"
-              className="inline-block px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-block px-6 py-3 bg-red-600 text-white font-medium rounded-lg hover:bg-red-700 transition-colors"
             >
               Return Home
             </Link>
