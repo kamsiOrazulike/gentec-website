@@ -1,0 +1,140 @@
+"use client";
+import React, { useState, useEffect } from "react";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+
+interface Service {
+  name: string;
+  link?: string;
+  description: string;
+}
+
+const ServiceCard = ({
+  service,
+  isDark = false,
+}: {
+  service: Service;
+  isDark?: boolean;
+}) => (
+  <div
+    className={`rounded-xl overflow-hidden flex flex-col h-[500px] md:h-[550px] ${
+      isDark ? "bg-red-600" : "bg-white"
+    }`}
+  >
+    <div className="relative aspect-[16/9] w-full bg-gray-100"></div>
+    <div className="p-4 md:p-8 flex-grow flex flex-col justify-between">
+      <div>
+        <h3
+          className={`text-xl md:text-2xl font-bold mb-2 md:mb-4 ${
+            isDark ? "text-white" : "text-gray-900"
+          }`}
+        >
+          {service.name}
+        </h3>
+        <p
+          className={`text-sm md:text-base mb-4 md:mb-6 ${
+            isDark ? "text-gray-100" : "text-gray-600"
+          }`}
+        >
+          {service.description}
+        </p>
+      </div>
+      <a
+        href={`/expertise/${service.link}`}
+        className={`${
+          isDark ? "text-white border-white" : "text-red-600 border-red-600"
+        } border-b-2 pb-1 transition-all duration-300 inline-block w-fit text-sm md:text-base`}
+      >
+        Learn More
+      </a>
+    </div>
+  </div>
+);
+
+interface ServiceCarouselProps {
+  services: Service[];
+}
+
+const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
+  const isMobile = useMediaQuery("(max-width: 768px)");
+  const isTablet = useMediaQuery("(max-width: 1024px)");
+  const cardsPerSlide = isMobile ? 1 : isTablet ? 2 : 3;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const totalSlides = Math.ceil(services.length / cardsPerSlide);
+
+  // Reset current index when screen size changes
+  useEffect(() => {
+    setCurrentIndex(0);
+  }, [cardsPerSlide]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) =>
+        prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
+      );
+    }, 7000);
+
+    return () => clearInterval(timer);
+  }, [totalSlides]);
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  return (
+    <div className="relative w-full pb-16">
+      {/* Carousel Content */}
+      <div className="overflow-hidden">
+        <div
+          className="flex transition-transform duration-700 ease-out"
+          style={{
+            transform: `translateX(-${currentIndex * 100}%)`,
+          }}
+        >
+          {Array.from({ length: totalSlides }).map((_, slideIndex) => (
+            <div key={slideIndex} className="flex w-full flex-shrink-0">
+              {services
+                .slice(
+                  slideIndex * cardsPerSlide,
+                  (slideIndex + 1) * cardsPerSlide
+                )
+                .map((service, index) => (
+                  <div
+                    key={service.name}
+                    className={`flex-shrink-0 px-2 md:px-4 ${
+                      isMobile ? "w-full" : isTablet ? "w-1/2" : "w-1/3"
+                    }`}
+                  >
+                    <ServiceCard
+                      service={service}
+                      isDark={
+                        (slideIndex * cardsPerSlide + index) % cardsPerSlide ===
+                        0
+                      }
+                    />
+                  </div>
+                ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Enhanced Slide Indicators */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center space-x-3">
+        {Array.from({ length: totalSlides }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`transition-all duration-300 ${
+              index === currentIndex
+                ? "w-8 h-2 bg-red-600"
+                : "w-2 h-2 bg-gray-300 hover:bg-red-400"
+            } rounded-full`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ServiceCarousel;

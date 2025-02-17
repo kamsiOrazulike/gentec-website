@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Menu, X } from "lucide-react";
@@ -7,22 +7,40 @@ import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrolled]);
+
   const navItems = [
-    { name: "HOME", href: "/" },
-    { name: "ABOUT US", href: "/about" },
-    { name: "EXPERTISE", href: "/expertise" },
-    { name: "MARKETS", href: "/markets" },
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about-us" },
+    { name: "Expertise", href: "/expertise" },
     { name: "QHSE", href: "/qhse" },
-    { name: "CAREERS", href: "/careers" },
-    { name: "MEDIA", href: "/media" },
+    { name: "Careers", href: "/careers" },
+    { name: "Media", href: "/media" },
   ];
 
   return (
-    <nav className="fixed w-full top-0 z-50 bg-white/20 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <nav
+      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm"
+          : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-28">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center space-x-2">
@@ -42,8 +60,19 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-gray-700 hover:text-red-600 px-3 py-2 text-sm font-medium transition-colors duration-300 
-              ${pathname === item.href ? "text-red-600 font-bold" : ""}`}
+                className={`px-3 py-2 text-xs font-light tracking-wide transition-colors duration-300 
+                  ${
+                    scrolled
+                      ? "text-gray-800 hover:text-red-600"
+                      : "text-white hover:text-red-400"
+                  }
+                  ${
+                    pathname === item.href
+                      ? scrolled
+                        ? "text-red-600 font-bold"
+                        : "text-red-400 font-bold"
+                      : ""
+                  }`}
               >
                 {item.name}
               </Link>
@@ -51,9 +80,13 @@ const Navbar = () => {
             {/* Contact Us Button */}
             <Link
               href="/contact"
-              className="ml-4 px-6 py-2.5 bg-gradient-to-r from-red-600 to-red-700 text-white text-sm font-medium rounded-md hover:from-red-700 hover:to-red-800 transition-all duration-300 shadow-md hover:shadow-lg border border-red-400 hover:border-red-500"
+              className={`ml-4 px-4 py-2 text-xs font-light transition-all duration-300 border ${
+                scrolled
+                  ? "bg-transparent text-black hover:text-white hover:bg-red-500 border-black hover:border-red-500"
+                  : "bg-transparent text-white hover:text-black hover:bg-white border-white hover:border-white"
+              }`}
             >
-              CONTACT US
+              Contact Us
             </Link>
           </div>
 
@@ -61,7 +94,11 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-red-600 hover:bg-gray-100 transition-colors duration-300"
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-300 ${
+                scrolled
+                  ? "text-black hover:text-red-600"
+                  : "text-white hover:text-red-400"
+              }`}
               aria-expanded={isOpen}
             >
               <span className="sr-only">Open main menu</span>
@@ -83,10 +120,10 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-gray-700 hover:text-red-600 hover:bg-gray-50 block px-3 py-2 text-base font-medium transition-colors duration-300 rounded-md
+                className={`text-black hover:font-light block px-3 py-2 text-base font-thin transition-colors duration-300
                   ${
                     pathname === item.href
-                      ? "text-red-600 font-bold bg-gray-50"
+                      ? "text-black font-bold border-l-4 border-red-500"
                       : ""
                   }`}
                 onClick={() => setIsOpen(false)}
@@ -97,9 +134,7 @@ const Navbar = () => {
             {/* Mobile Contact Button */}
             <Link
               href="/contact"
-              className="block mx-3 mt-4 px-6 py-3 bg-gradient-to-r from-red-600 to-red-700 text-white text-base 
-                font-medium rounded-md text-center hover:from-red-700 hover:to-red-800 transition-all duration-300
-                shadow-md hover:shadow-lg border border-red-400 hover:border-red-500"
+              className="block mx-3 mt-4 px-4 py-2 bg-transparent hover:bg-red-500 text-black hover:text-white text-base font-light text-center transition-all duration-300 border border-black hover:border-red-500"
               onClick={() => setIsOpen(false)}
             >
               CONTACT US

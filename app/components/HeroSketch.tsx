@@ -227,11 +227,11 @@ const GlobeComponent: React.FC = () => {
           } else if (screenWidth >= 768 && screenWidth < 1024) {
             // Tablet/iPad view
             size = screenWidth * 0.9;
-            globeSize = size * 0.35;
+            globeSize = size * 0.3;
           } else {
             // Desktop view
             size = Math.min(screenWidth, window.innerHeight);
-            globeSize = size * 0.35;
+            globeSize = size * 0.3;
           }
 
           p.createCanvas(size, size, p.WEBGL);
@@ -274,14 +274,8 @@ const DynamicGlobe = dynamic(() => Promise.resolve(GlobeComponent), {
   ssr: false,
 });
 
-// Create a simple loading component to replace PageLoader
-const SimpleLoader: React.FC<{ onLoadingComplete: () => void }> = ({
-  onLoadingComplete,
-}) => {
-  useEffect(() => {
-    onLoadingComplete();
-  }, [onLoadingComplete]);
-
+/// Create a simple loading component
+const SimpleLoader = () => {
   return (
     <div className="w-full h-full flex justify-center items-center">
       <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900" />
@@ -290,7 +284,7 @@ const SimpleLoader: React.FC<{ onLoadingComplete: () => void }> = ({
 };
 
 // Main page component
-export default function GlobePage() {
+export default function HeroSketch() {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
 
@@ -300,6 +294,7 @@ export default function GlobePage() {
         // Add a minimum delay for loading
         await new Promise((resolve) => setTimeout(resolve, 2000));
         setIsLoading(false);
+        setShowContent(true);
       } catch (error) {
         console.error("Initialization error:", error);
         setIsLoading(false);
@@ -309,14 +304,38 @@ export default function GlobePage() {
     initializeApp();
   }, []);
 
-  const handleLoadingComplete = () => {
-    setShowContent(true);
-  };
-
   return (
-    <>
-      {isLoading && <SimpleLoader onLoadingComplete={handleLoadingComplete} />}
-      {showContent && <DynamicGlobe />}
-    </>
+    <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
+      {isLoading ? (
+        <SimpleLoader />
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          {/* Left side - Globe */}
+          <div className="h-full overflow-hidden">
+            {showContent && <DynamicGlobe />}
+          </div>
+
+          {/* Right side - Text content */}
+          {showContent && (
+            <div className="text-center lg:text-left px-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+                World-Class Oil and Gas
+                <span className="text-red-600"> Services</span>
+              </h1>
+              <p className="text-gray-600 text-md sm:text-xl mb-8">
+                Delivering exceptional warehousing, logistics, and engineering
+                solutions since 1997.
+              </p>
+              <a
+                href="/about-us"
+                className="border border-black text-black px-8 py-3 rounded-nonehover:bg-white hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 mt-4 text-base"
+              >
+                Learn More About Us
+              </a>
+            </div>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

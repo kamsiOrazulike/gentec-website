@@ -1,8 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
-/* eslint-disable @next/next/no-img-element */
-import Image from "next/image";
 import Link from "next/link";
-import HeroSketch from "./components/HeroSketch";
+import Image from "next/image";
+// import HeroSketch from "./components/HeroSketch";
+import ServiceCarousel from "./components/Carousel";
+import ClientMarquee from "./components/Marquee";
+import HeroCarousel from "./components/HeroCarousel";
 
 export default function Home() {
   const services = [
@@ -22,6 +24,18 @@ export default function Home() {
       name: "Technical Support",
       description:
         "OEM equipment representation with comprehensive after-sales support and maintenance.",
+      isNew: true,
+    },
+    {
+      name: "Manpower Resource Management & Training",
+      description:
+        "Expert professionals to power your projects and train your workforce.",
+      isNew: false,
+    },
+    {
+      name: "Project Management Services",
+      description:
+        "We provide project management services for the entire project lifecycle.",
       isNew: true,
     },
   ];
@@ -48,40 +62,65 @@ export default function Home() {
     <main className="relative min-h-screen bg-gray-50">
       {/* Content Container */}
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-8">
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/static/imgs/image3.png"
-            alt="Gentec Facilities"
-            className="w-full h-full object-cover"
+      <HeroCarousel />
+
+      {/* About Us Section */}
+      <section className="relative py-20 bg-gray-50 px-8 overflow-hidden">
+        {/* Dot Matrix Background */}
+        <div>
+          <div
+            className="absolute inset-0 opacity-[0.05]"
+            style={{
+              backgroundImage: `radial-gradient(#000 2px, transparent 2px)`,
+              backgroundSize: "10px 10px",
+            }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-white/90 to-white/80" />
+          {/* Top Fade */}
+          <div
+            className="absolute top-0 left-0 right-0 h-40 z-10"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgb(249 250 251) 0%, transparent 100%)",
+            }}
+          />
+          {/* Bottom Fade */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-40 z-10"
+            style={{
+              background:
+                "linear-gradient(to top, rgb(249 250 251) 0%, transparent 100%)",
+            }}
+          />
         </div>
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            {/* Left side - Space for p5.js sketch */}
-            <div className="h-full overflow-hidden">
-              <HeroSketch />
-            </div>
-
-            {/* Right side - Text content */}
-            <div className="text-center lg:text-left px-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                World-Class Oil and Gas
-                <span className="text-red-600"> Services</span>
-              </h1>
-              <p className="text-gray-600 text-md sm:text-xl mb-8">
-                Delivering exceptional warehousing, logistics, and engineering
-                solutions since 1997.
+        <div className="w-full max-w-7xl mx-auto px-4 relative z-20">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-5xl font-bold text-gray-900 mb-6">
+                Who we <span className="text-red-600">Are</span>
+              </h2>
+              <p className="text-gray-600 mb-12">
+                Genesis Technical Company Limited (GENTEC), founded in 1997, is
+                a world-class oil and gas technical services company with a
+                strong customer focus and commitment to providing exceptional
+                services.
               </p>
-              <button
-                className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 
-                  text-white px-4 py-1 rounded-lg text-md font-medium transition-all duration-300
-                  shadow-md hover:shadow-lg border border-red-400 hover:border-red-500"
+              <Link
+                href="/about-us"
+                className="border border-black text-black px-8 py-3 rounded-nonehover:bg-white hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 mt-4 text-base"
               >
-                Learn More
-              </button>
+                Learn More About Us
+              </Link>
+            </div>
+            <div>
+              <Image
+                src="/static/imgs/image6.png"
+                alt="Gentec Facilities"
+                width={800}
+                height={500}
+                className="w-full rounded-lg shadow-lg"
+                quality={90}
+              />
             </div>
           </div>
         </div>
@@ -89,89 +128,46 @@ export default function Home() {
 
       {/* Services Section */}
       <section className="relative py-20 bg-gray-50 px-8">
-        <div className="w-full max-w-7xl mx-auto px-4">
-          <div className="w-full bg-white rounded-xl p-6 sm:p-8 shadow-lg border border-gray-100">
-            <div className="flex justify-between items-center mb-8">
-              <h2 className="text-sm sm:text-base text-gray-600 uppercase tracking-wider font-medium">
-                Our Services
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-100 hover:border-red-200 rounded-lg overflow-hidden 
-              transition-all duration-300 p-6 shadow-md hover:shadow-lg hover:scale-[1.02]
-              group"
-                >
-                  <div className="flex items-center space-x-2 mb-4">
-                    <h3 className="text-gray-800 group-hover:text-red-600 text-md font-medium transition-colors duration-300">
-                      {service.name}
-                    </h3>
-                    {service.isNew && (
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-red-600"></span>
-                      </span>
-                    )}
-                  </div>
-                  <p className="text-gray-600 text-sm group-hover:text-gray-700 transition-colors duration-300">
-                    {service.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="text-right">
-              <Link
-                href="/services"
-                className="text-red-600 hover:text-red-700 transition-colors duration-300 inline-block"
-              >
-                View All Services →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* About Us Section */}
-      <section className="relative py-20 bg-gray-50 px-8">
-        <div className="w-full max-w-7xl mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">
-                About <span className="text-red-600">Gentec</span>
-              </h2>
-              <p className="text-gray-600 mb-4">
-                Genesis Technical Company Limited (GENTEC), founded in 1997, is
-                a world-class oil and gas technical services company with a
-                strong customer focus and commitment to providing exceptional
-                services.
-              </p>
-              <Link
-                href="/about"
-                className="inline-block bg-gradient-to-r from-red-600 to-red-700 
-                text-white px-6 py-2.5 rounded-lg text-sm font-medium 
-                hover:from-red-700 hover:to-red-800 transition-all duration-300"
-              >
-                Learn More About Us
-              </Link>
-            </div>
-            <div>
-              <img
-                src="https://i.pinimg.com/736x/69/cd/fa/69cdfa2745f27f739b4300dee47dcae2.jpg"
-                alt="Gentec Facilities"
-                className="w-full rounded-lg shadow-lg"
-              />
-            </div>
-          </div>
+        <div className="w-full max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold text-gray-900 mb-6">
+            What we <span className="text-red-600">Do</span>
+          </h2>
+          <ServiceCarousel services={services} />
         </div>
       </section>
 
       {/* Clients Section */}
-      <section className="relative py-20 bg-white px-8">
-        <div className="w-full max-w-7xl mx-auto px-4">
+      <section className="relative py-20 bg-white overflow-hidden">
+        {/* Dot Matrix Background */}
+        <div>
+          <div
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `radial-gradient(#000 2px, transparent 2px)`,
+              backgroundSize: "10px 10px",
+            }}
+          />
+          {/* Top Fade */}
+          <div
+            className="absolute top-0 left-0 right-0 h-40 z-10"
+            style={{
+              background:
+                "linear-gradient(to bottom, white 0%, transparent 100%)",
+            }}
+          />
+          {/* Bottom Fade */}
+          <div
+            className="absolute bottom-0 left-0 right-0 h-40 z-10"
+            style={{
+              background: "linear-gradient(to top, white 0%, transparent 100%)",
+            }}
+          />
+        </div>
+
+        {/* Content Container */}
+        <div className="w-full max-w-7xl mx-auto px-4 relative z-20">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900">
+            <h2 className="text-5xl font-bold text-gray-900">
               Our <span className="text-red-600">Clients</span>
             </h2>
             <p className="text-gray-600 mt-4">
@@ -179,25 +175,7 @@ export default function Home() {
               oil and gas industry
             </p>
           </div>
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-6 justify-center items-center">
-            {clients.map((client, index) => (
-              <div
-                key={index}
-                className="flex justify-center items-center opacity-70 hover:opacity-100 transition-opacity duration-300 relative w-full h-20"
-              >
-                <Image
-                  src={client.logo}
-                  alt={`${client.name} logo`}
-                  fill
-                  sizes="(max-width: 768px) 33vw, (max-width: 1200px) 20vw, 15vw"
-                  style={{
-                    objectFit: "contain",
-                    padding: "10px",
-                  }}
-                />
-              </div>
-            ))}
-          </div>
+          <ClientMarquee clients={clients} />
         </div>
       </section>
     </main>
