@@ -1,38 +1,145 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
+
+// Memoized Slide Component
+interface CarouselSlideProps {
+  slide: {
+    title: string;
+    subtitle: string;
+    image: string;
+    link: string;
+    linkText: string;
+    isPriority: boolean;
+  };
+  isActive: boolean;
+}
+
+const CarouselSlide: React.FC<CarouselSlideProps> = React.memo(
+  ({ slide, isActive }) => (
+    <div
+      className={`absolute inset-0 transition-opacity duration-1000 ${
+        isActive ? "opacity-100" : "opacity-0 pointer-events-none"
+      }`}
+    >
+      {/* Background Image */}
+      <div className="relative h-full w-full">
+        <Image
+          src={slide.image}
+          alt={slide.title}
+          fill
+          className="object-cover"
+          priority={slide.isPriority}
+          loading={slide.isPriority ? "eager" : "lazy"}
+          quality={85}
+        />
+        {/* Dark overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
+      </div>
+
+      {/* Content Container */}
+      <div className="absolute inset-0 z-20">
+        <div className="container mx-auto h-full flex items-center justify-start">
+          <div className="w-full px-8 md:w-1/2 text-left pr-8 md:pr-16 flex flex-col items-start">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white tracking-wide">
+              {slide.title}
+            </h1>
+            <p className="text-sm md:text-md lg:text-lg text-white/90 mb-8">
+              {slide.subtitle}
+            </p>
+            <Link
+              href={slide.link}
+              className="inline-block border border-white text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 text-base"
+            >
+              {slide.linkText}
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+);
+CarouselSlide.displayName = "CarouselSlide";
+
+// Memoized Navigation Dots
+interface NavigationDotsProps {
+  slides: {
+    title: string;
+    subtitle: string;
+    image: string;
+    link: string;
+    linkText: string;
+    isPriority: boolean;
+  }[];
+  currentSlide: number;
+  onChange: (index: number) => void;
+}
+
+const NavigationDots = React.memo(
+  ({ slides, currentSlide, onChange }: NavigationDotsProps) => (
+    <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-30">
+      {slides.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => onChange(index)}
+          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            currentSlide === index
+              ? "bg-white w-8"
+              : "bg-white/50 hover:bg-white/80"
+          }`}
+          aria-label={`Go to slide ${index + 1}`}
+        />
+      ))}
+    </div>
+  )
+);
+NavigationDots.displayName = "NavigationDots";
 
 const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
-  const slides = [
-    {
-      title: "Engineering Exceptionality",
-      subtitle:
-        "Delivering quality technical and logistics services through continuous innovation and exceptional Client Experience.",
-      image: "/static/stock_imgs/2.png",
-      link: "/about-us",
-      linkText: "Discover Our Story",
-    },
-    {
-      title: "Our Upstream",
-      subtitle: "Find out more details about Our Ede Project.",
-      image: "/static/stock_imgs/5.png",
-      link: "/ede-project",
-      linkText: "Ede E&P",
-    },
-    {
-      title: "Our Expertise",
-      subtitle:
-        "What truly sets us apart is our dedication to the experience working with our clients.",
-      image: "/static/stock_imgs/9.jpg",
-      link: "/expertise",
-      linkText: "Our Services",
-    },
-  ];
+  // Memoize slides data
+  const slides = useMemo(
+    () => [
+      {
+        title: "Gentec",
+        subtitle: "Delivering quality technical and logistics services.",
+        image: "/static/imgs/image5.png",
+        link: "/about-us",
+        linkText: "Discover Gentec",
+        isPriority: true,
+      },
+      {
+        title: "Our Expertise",
+        subtitle: "Discover what truly sets us apart.",
+        image: "/static/stock_imgs/6.png",
+        link: "/expertise",
+        linkText: "Learn more",
+        isPriority: false,
+      },
+      {
+        title: "Our Upstream",
+        subtitle: "Find out more details about Our Ede Upstream.",
+        image: "/static/stock_imgs/7.jpg",
+        link: "/ede-upstream",
+        linkText: "Ede E&P",
+        isPriority: false,
+      },
+    ],
+    []
+  );
 
+  // Memoize hover handlers
+  const handleMouseEnter = useCallback(() => setIsHovering(true), []);
+  const handleMouseLeave = useCallback(() => setIsHovering(false), []);
+  const handleSlideChange: (index: number) => void = useCallback(
+    (index: number) => setCurrentSlide(index),
+    []
+  );
+
+  // Optimized timer effect
   useEffect(() => {
     if (isHovering) return;
 
@@ -40,94 +147,50 @@ const HeroCarousel = () => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
 
-    return () => {
-      if (timer) {
-        clearInterval(timer);
-      }
-    };
+    return () => clearInterval(timer);
   }, [isHovering, slides.length]);
+
+  // Memoize dot pattern style
+  const dotPatternStyle = useMemo(
+    () => ({
+      backgroundImage: `
+      radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 1px, transparent 1px),
+      radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 1px, transparent 1px)
+    `,
+      backgroundSize: "20px 20px, 30px 30px",
+      backgroundPosition: "0 0, 10px 10px",
+    }),
+    []
+  );
 
   return (
     <div
       className="relative h-[95vh] w-full overflow-hidden"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* Dot pattern overlay */}
-      <div
-        className="absolute inset-0 z-10"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 1px, transparent 1px),
-            radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: "20px 20px, 30px 30px",
-          backgroundPosition: "0 0, 10px 10px",
-        }}
-      />
+      <div className="absolute inset-0 z-10" style={dotPatternStyle} />
 
       {/* Slides */}
       <div className="relative h-full">
         {slides.map((slide, index) => (
-          <div
+          <CarouselSlide
             key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              currentSlide === index ? "opacity-100" : "opacity-0"
-            }`}
-          >
-            {/* Background Image */}
-            <div className="relative h-full w-full">
-              <Image
-                src={slide.image}
-                alt={slide.title}
-                fill
-                className="object-cover"
-                priority={index === 0}
-              />
-              {/* Dark overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
-            </div>
-
-            {/* Content Container */}
-            <div className="absolute inset-0 z-20">
-              <div className="container mx-auto h-full flex items-center justify-end">
-                <div className="w-full md:w-1/2 text-right pr-8 md:pr-16 flex flex-col items-end">
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white tracking-wide">
-                    {slide.title}
-                  </h1>
-                  <p className="text-sm md:text-md lg:text-lg text-white/90 mb-8">
-                    {slide.subtitle}
-                  </p>
-                  <Link
-                    href={slide.link}
-                    className="inline-block border border-white text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 text-base"
-                  >
-                    {slide.linkText}
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
+            slide={slide}
+            isActive={currentSlide === index}
+          />
         ))}
       </div>
 
       {/* Navigation dots */}
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-30">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              currentSlide === index
-                ? "bg-white w-8"
-                : "bg-white/50 hover:bg-white/80"
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      <NavigationDots
+        slides={slides}
+        currentSlide={currentSlide}
+        onChange={handleSlideChange}
+      />
     </div>
   );
 };
 
-export default HeroCarousel;
+export default React.memo(HeroCarousel);

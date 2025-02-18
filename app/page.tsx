@@ -9,34 +9,25 @@ import HeroCarousel from "./components/HeroCarousel";
 export default function Home() {
   const services = [
     {
-      name: "Warehousing & Logistics",
+      name: "Drilling and Drilling Support Services",
       description:
-        "91,000 square meters of open yard warehousing space with comprehensive logistics solutions.",
+        "Comprehensive drilling solutions with expert support services for optimal well performance and safety.",
       isNew: true,
+      imageSrc: "/static/imgs/image5.png",
     },
     {
-      name: "Engineering Services",
+      name: "Construction",
       description:
-        "Complete engineering design, project management, and NDT inspection services.",
+        "End-to-end construction services for oil and gas facilities, including infrastructure development and maintenance.",
       isNew: false,
+      imageSrc: "/static/stock_imgs/2.png",
     },
     {
-      name: "Technical Support",
+      name: "Procurement",
       description:
-        "OEM equipment representation with comprehensive after-sales support and maintenance.",
+        "Strategic procurement services ensuring timely delivery of quality equipment and materials for oil and gas operations.",
       isNew: true,
-    },
-    {
-      name: "Manpower Resource Management & Training",
-      description:
-        "Expert professionals to power your projects and train your workforce.",
-      isNew: false,
-    },
-    {
-      name: "Project Management Services",
-      description:
-        "We provide project management services for the entire project lifecycle.",
-      isNew: true,
+      imageSrc: "/static/stock_imgs/9.jpg",
     },
   ];
 
@@ -129,9 +120,6 @@ export default function Home() {
       {/* Services Section */}
       <section className="relative py-20 bg-gray-50 px-8">
         <div className="w-full max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-gray-900 mb-6">
-            What we <span className="text-red-600">Do</span>
-          </h2>
           <ServiceCarousel services={services} />
         </div>
       </section>

@@ -1,11 +1,13 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 interface Service {
   name: string;
   link?: string;
   description: string;
+  imageSrc?: string;
 }
 
 const ServiceCard = ({
@@ -20,7 +22,15 @@ const ServiceCard = ({
       isDark ? "bg-red-600" : "bg-white"
     }`}
   >
-    <div className="relative aspect-[16/9] w-full bg-gray-100"></div>
+    <div className="relative h-64 md:h-72 w-full bg-gray-100">
+      {" "}
+      {/* Fixed height for images */}
+      <img
+        src={service.imageSrc || "/static/stock_imgs/4.png"}
+        alt={service.name}
+        className="w-full h-full object-cover"
+      />
+    </div>
     <div className="p-4 md:p-8 flex-grow flex flex-col justify-between">
       <div>
         <h3
@@ -61,29 +71,114 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = Math.ceil(services.length / cardsPerSlide);
 
+  // Touch handling
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
   // Reset current index when screen size changes
   useEffect(() => {
     setCurrentIndex(0);
   }, [cardsPerSlide]);
 
+  // Auto-scroll timer
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
-      );
-    }, 7000);
+    if (!isDragging) {
+      const timer = setInterval(() => {
+        setCurrentIndex((prevIndex) =>
+          prevIndex === totalSlides - 1 ? 0 : prevIndex + 1
+        );
+      }, 7000);
 
-    return () => clearInterval(timer);
-  }, [totalSlides]);
+      return () => clearInterval(timer);
+    }
+  }, [totalSlides, isDragging]);
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index);
   };
 
+  // Touch handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStart === null) return;
+
+    const currentTouch = e.targetTouches[0].clientX;
+    const diff = touchStart - currentTouch;
+
+    if (Math.abs(diff) > 5) {
+      e.preventDefault();
+    }
+
+    setTouchEnd(currentTouch);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+
+    const diff = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(diff) > minSwipeDistance) {
+      if (diff > 0 && currentIndex < totalSlides - 1) {
+        // Swiped left
+        setCurrentIndex((prev) => prev + 1);
+      } else if (diff < 0 && currentIndex > 0) {
+        // Swiped right
+        setCurrentIndex((prev) => prev - 1);
+      }
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
+  // Mouse drag handlers for desktop
+  const handleMouseDown = (e: React.MouseEvent) => {
+    setIsDragging(true);
+    setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));
+    setScrollLeft(carouselRef.current?.scrollLeft || 0);
+  };
+
+  const handleMouseLeave = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!isDragging) return;
+    e.preventDefault();
+
+    const x = e.pageX - (carouselRef.current?.offsetLeft || 0);
+    const walk = (x - startX) * 2;
+    if (carouselRef.current) {
+      carouselRef.current.scrollLeft = scrollLeft - walk;
+    }
+  };
+
   return (
     <div className="relative w-full pb-16">
       {/* Carousel Content */}
-      <div className="overflow-hidden">
+      <div
+        className="overflow-hidden"
+        ref={carouselRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        onMouseDown={handleMouseDown}
+        onMouseLeave={handleMouseLeave}
+        onMouseUp={handleMouseUp}
+        onMouseMove={handleMouseMove}
+      >
         <div
           className="flex transition-transform duration-700 ease-out"
           style={{
