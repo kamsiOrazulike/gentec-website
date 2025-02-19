@@ -177,7 +177,7 @@ const HeroCarousel = () => {
 
   return (
     <div
-      className="relative h-[80vh] md:h-[95vh] w-full overflow-hidden"
+      className="relative h-[88vh] md:h-[96vh] w-full overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
