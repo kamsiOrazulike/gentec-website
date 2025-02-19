@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-gray-50 to-gray-100 pt-28">
+    <div className="min-h-screen flex items-center justify-center bg-image4 bg-cover bg-no-repeat pt-28">
       <div className="max-w-2xl px-8 pb-8 bg-white rounded-lg shadow-xl">
         <div className="text-center">
           {/* Corporate Logo Icon */}
