@@ -3,7 +3,6 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-// Memoized Slide Component
 interface CarouselSlideProps {
   slide: {
     title: string;
@@ -12,6 +11,7 @@ interface CarouselSlideProps {
     link: string;
     linkText: string;
     isPriority: boolean;
+    isDisabled?: boolean;
   };
   isActive: boolean;
 }
@@ -33,27 +33,37 @@ const CarouselSlide: React.FC<CarouselSlideProps> = React.memo(
           priority={slide.isPriority}
           loading={slide.isPriority ? "eager" : "lazy"}
           quality={85}
+          draggable="false"
         />
         {/* Dark overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent" />
       </div>
 
-      {/* Content Container */}
+      {/* Content Container - Modified for bottom-left positioning */}
       <div className="absolute inset-0 z-20">
-        <div className="container mx-auto h-full flex items-center justify-start">
+        <div className="container mx-auto h-full flex items-end pb-32">
           <div className="w-full px-8 md:w-1/2 text-left pr-8 md:pr-16 flex flex-col items-start">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-white tracking-wide">
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-2 text-white tracking-wide">
               {slide.title}
             </h1>
             <p className="text-sm md:text-md lg:text-lg text-white/90 mb-8">
               {slide.subtitle}
             </p>
-            <Link
-              href={slide.link}
-              className="inline-block border border-white text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 text-base"
-            >
-              {slide.linkText}
-            </Link>
+            {slide.isDisabled ? (
+              <button
+                disabled
+                className="inline-block border border-white/50 text-white/50 px-8 py-3 cursor-not-allowed text-base"
+              >
+                {slide.linkText}
+              </button>
+            ) : (
+              <Link
+                href={slide.link}
+                className="inline-block border border-white text-white px-8 py-3 hover:bg-white hover:text-black transition-all duration-300 text-base"
+              >
+                {slide.linkText}
+              </Link>
+            )}
           </div>
         </div>
       </div>
@@ -62,7 +72,7 @@ const CarouselSlide: React.FC<CarouselSlideProps> = React.memo(
 );
 CarouselSlide.displayName = "CarouselSlide";
 
-// Memoized Navigation Dots
+// Define NavigationDotsProps interface
 interface NavigationDotsProps {
   slides: {
     title: string;
@@ -71,11 +81,13 @@ interface NavigationDotsProps {
     link: string;
     linkText: string;
     isPriority: boolean;
+    isDisabled?: boolean;
   }[];
   currentSlide: number;
   onChange: (index: number) => void;
 }
 
+// NavigationDots component remains the same
 const NavigationDots = React.memo(
   ({ slides, currentSlide, onChange }: NavigationDotsProps) => (
     <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-30">
@@ -100,16 +112,17 @@ const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
-  // Memoize slides data
+  // Updated slides data with isDisabled property
   const slides = useMemo(
     () => [
       {
         title: "Gentec",
         subtitle: "Delivering quality technical and logistics services.",
-        image: "/static/imgs/image5.png",
+        image: "/static/imgs/gentec2.jpg",
         link: "/about-us",
         linkText: "Discover Gentec",
         isPriority: true,
+        isDisabled: false,
       },
       {
         title: "Our Expertise",
@@ -118,28 +131,28 @@ const HeroCarousel = () => {
         link: "/expertise",
         linkText: "Learn more",
         isPriority: false,
+        isDisabled: false,
       },
       {
         title: "Our Upstream",
         subtitle: "Find out more details about Our Ede Upstream.",
-        image: "/static/stock_imgs/7.jpg",
+        image: "/static/stock_imgs/4.png",
         link: "/ede-upstream",
-        linkText: "Ede E&P",
+        linkText: "Coming Soon",
         isPriority: false,
+        isDisabled: true, // Set to disabled
       },
     ],
     []
   );
 
-  // Memoize hover handlers
   const handleMouseEnter = useCallback(() => setIsHovering(true), []);
   const handleMouseLeave = useCallback(() => setIsHovering(false), []);
-  const handleSlideChange: (index: number) => void = useCallback(
+  const handleSlideChange = useCallback(
     (index: number) => setCurrentSlide(index),
     []
   );
 
-  // Optimized timer effect
   useEffect(() => {
     if (isHovering) return;
 
@@ -150,7 +163,6 @@ const HeroCarousel = () => {
     return () => clearInterval(timer);
   }, [isHovering, slides.length]);
 
-  // Memoize dot pattern style
   const dotPatternStyle = useMemo(
     () => ({
       backgroundImage: `
@@ -169,10 +181,7 @@ const HeroCarousel = () => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Dot pattern overlay */}
       <div className="absolute inset-0 z-10" style={dotPatternStyle} />
-
-      {/* Slides */}
       <div className="relative h-full">
         {slides.map((slide, index) => (
           <CarouselSlide
@@ -182,8 +191,6 @@ const HeroCarousel = () => {
           />
         ))}
       </div>
-
-      {/* Navigation dots */}
       <NavigationDots
         slides={slides}
         currentSlide={currentSlide}

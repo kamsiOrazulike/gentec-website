@@ -46,6 +46,7 @@ const Footer = () => {
                   width={150}
                   height={50}
                   className="mb-4"
+                  draggable="false"
                 />
                 <p className="text-gray-600 text-sm">
                   Leading provider of technical services to the oil and gas

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
@@ -9,6 +10,18 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  // Prevent scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,8 +59,8 @@ const Navbar = () => {
               <Image
                 src="/logo2.svg"
                 alt="Gentec Logo"
-                width={150}
-                height={100}
+                width={100}
+                height={50}
                 priority
               />
             </Link>
@@ -76,7 +89,6 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            {/* Contact Us Button */}
             <Link
               href="/contact"
               className={`ml-4 px-4 py-2 text-xs font-light transition-all duration-300 border ${
@@ -93,8 +105,10 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-300 ${
-                scrolled
+              className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-300 z-50 ${
+                isOpen
+                  ? "text-black"
+                  : scrolled
                   ? "text-black hover:text-red-600"
                   : "text-white hover:text-red-400"
               }`}
@@ -111,33 +125,52 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Fullscreen Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden absolute w-full bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-lg">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden fixed inset-0 bg-white z-40 flex flex-col">
+          {/* Navigation Links Container */}
+          <div className="flex-1 flex flex-col justify-center px-4 py-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`text-black hover:font-light block px-3 py-2 text-base font-thin transition-colors duration-300
+                className={`text-black text-2xl font-light py-4 transition-colors duration-300
                   ${
                     pathname === item.href
-                      ? "text-black font-bold border-l-4 border-red-500"
-                      : ""
+                      ? "text-red-600 font-normal pl-4 border-l-4 border-red-600"
+                      : "hover:text-red-600 hover:pl-4"
                   }`}
                 onClick={() => setIsOpen(false)}
               >
                 {item.name}
               </Link>
             ))}
-            {/* Mobile Contact Button */}
             <Link
               href="/contact"
-              className="block mx-3 mt-4 px-4 py-2 bg-transparent hover:bg-red-500 text-black hover:text-white text-base font-light text-center transition-all duration-300 border border-black hover:border-red-500"
+              className="text-black text-2xl font-light py-4 transition-colors duration-300 hover:text-red-600 hover:pl-4"
               onClick={() => setIsOpen(false)}
             >
-              CONTACT US
+              Contact Us
             </Link>
+          </div>
+
+          {/* Footer with Logo Divider */}
+          <div className="relative mt-auto pb-8">
+            <div className="absolute -top-16 left-0 w-full flex items-center justify-center">
+              <div className="w-full border-t border-gray-200"></div>
+              <div className="absolute bg-white px-4">
+                <img
+                  src="/logo2.svg"
+                  alt="GENTEC Logo"
+                  className="w-16 h-16 opacity-20"
+                />
+              </div>
+            </div>
+            <div className="text-center max-w-3xl mx-auto px-4 pt-8">
+              <p className="text-gray-600 text-sm">
+                Genesis Technical Company Limited
+              </p>
+            </div>
           </div>
         </div>
       )}

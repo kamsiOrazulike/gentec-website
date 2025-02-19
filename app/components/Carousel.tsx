@@ -10,21 +10,9 @@ interface Service {
   imageSrc?: string;
 }
 
-const ServiceCard = ({
-  service,
-  isDark = false,
-}: {
-  service: Service;
-  isDark?: boolean;
-}) => (
-  <div
-    className={`rounded-xl overflow-hidden flex flex-col h-[500px] md:h-[550px] ${
-      isDark ? "bg-red-600" : "bg-white"
-    }`}
-  >
+const ServiceCard = ({ service }: { service: Service }) => (
+  <div className="rounded-xl overflow-hidden flex flex-col h-[500px] md:h-[550px] bg-white transition-colors duration-300 hover:bg-red-600 group">
     <div className="relative h-64 md:h-72 w-full bg-gray-100">
-      {" "}
-      {/* Fixed height for images */}
       <img
         src={service.imageSrc || "/static/stock_imgs/4.png"}
         alt={service.name}
@@ -33,26 +21,16 @@ const ServiceCard = ({
     </div>
     <div className="p-4 md:p-8 flex-grow flex flex-col justify-between">
       <div>
-        <h3
-          className={`text-xl md:text-2xl font-bold mb-2 md:mb-4 ${
-            isDark ? "text-white" : "text-gray-900"
-          }`}
-        >
+        <h3 className="text-md md:text-lg font-bold mb-2 md:mb-4 text-gray-900 group-hover:text-white">
           {service.name}
         </h3>
-        <p
-          className={`text-sm md:text-base mb-4 md:mb-6 ${
-            isDark ? "text-gray-100" : "text-gray-600"
-          }`}
-        >
+        <p className="text-sm md:text-md mb-4 md:mb-6 text-gray-600 group-hover:text-gray-100">
           {service.description}
         </p>
       </div>
       <a
         href={`/expertise/${service.link}`}
-        className={`${
-          isDark ? "text-white border-white" : "text-red-600 border-red-600"
-        } border-b-2 pb-1 transition-all duration-300 inline-block w-fit text-sm md:text-base`}
+        className="text-red-600 border-red-600 group-hover:text-white group-hover:border-white border-b-2 pb-1 transition-all duration-300 inline-block w-fit text-sm md:text-md"
       >
         Learn More
       </a>
@@ -66,8 +44,7 @@ interface ServiceCarouselProps {
 
 const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  const isTablet = useMediaQuery("(max-width: 1024px)");
-  const cardsPerSlide = isMobile ? 1 : isTablet ? 2 : 3;
+  const cardsPerSlide = isMobile ? 1 : 2;
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = Math.ceil(services.length / cardsPerSlide);
 
@@ -167,7 +144,6 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
 
   return (
     <div className="relative w-full pb-16">
-      {/* Carousel Content */}
       <div
         className="overflow-hidden"
         ref={carouselRef}
@@ -192,20 +168,14 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
                   slideIndex * cardsPerSlide,
                   (slideIndex + 1) * cardsPerSlide
                 )
-                .map((service, index) => (
+                .map((service) => (
                   <div
                     key={service.name}
-                    className={`flex-shrink-0 px-2 md:px-4 ${
-                      isMobile ? "w-full" : isTablet ? "w-1/2" : "w-1/3"
+                    className={`flex-shrink-0 px-4 md:px-6 ${
+                      isMobile ? "w-full" : "w-1/2"
                     }`}
                   >
-                    <ServiceCard
-                      service={service}
-                      isDark={
-                        (slideIndex * cardsPerSlide + index) % cardsPerSlide ===
-                        0
-                      }
-                    />
+                    <ServiceCard service={service} />
                   </div>
                 ))}
             </div>
@@ -213,7 +183,6 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
         </div>
       </div>
 
-      {/* Enhanced Slide Indicators */}
       <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex items-center space-x-3">
         {Array.from({ length: totalSlides }).map((_, index) => (
           <button

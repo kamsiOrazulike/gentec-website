@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { MapPin } from "lucide-react";
+import ScrollButton from "@/components/ScrollButton";
 
 const ProjectsPage = () => {
   const [activeTab, setActiveTab] = useState("critical");
@@ -110,6 +111,8 @@ const ProjectsPage = () => {
             ))}
         </div>
       </div>
+
+      <ScrollButton />
     </main>
   );
 };
