@@ -4,7 +4,7 @@ import { MapPin } from "lucide-react";
 import ScrollButton from "@/components/ScrollButton";
 
 const ProjectsPage = () => {
-  const [activeTab, setActiveTab] = useState("critical");
+  const [activeTab, setActiveTab] = useState("projects");
 
   const projects = [
     {
@@ -14,7 +14,7 @@ const ProjectsPage = () => {
       description:
         "Comprehensive maintenance and upgrade of offshore drilling platforms including equipment overhaul and safety systems modernization.",
       location: "Lagos, Nigeria",
-      type: "critical",
+      type: "projects",
     },
     {
       year: "2019",
@@ -23,7 +23,7 @@ const ProjectsPage = () => {
       description:
         "Strategic procurement and supply of specialized drilling equipment for deepwater operations.",
       location: "Port Harcourt, Nigeria",
-      type: "critical",
+      type: "projects",
     },
     {
       year: "2018",
@@ -32,7 +32,7 @@ const ProjectsPage = () => {
       description:
         "Provision of technical support services for drilling operations including equipment maintenance and personnel training.",
       location: "Delta State, Nigeria",
-      type: "contract",
+      type: "projects",
     },
   ];
 
@@ -47,24 +47,24 @@ const ProjectsPage = () => {
         {/* Project Type Tabs */}
         <div className="flex justify-center gap-4 mb-16">
           <button
-            onClick={() => setActiveTab("critical")}
+            onClick={() => setActiveTab("projects")}
             className={`px-6 py-3 rounded-lg transition-all duration-300 ${
-              activeTab === "critical"
+              activeTab === "projects"
                 ? "bg-white text-red-900"
                 : "border border-white text-white hover:bg-white/10"
             }`}
           >
-            Critical Projects
+            Projects
           </button>
           <button
-            onClick={() => setActiveTab("contract")}
+            onClick={() => setActiveTab("achievements")}
             className={`px-6 py-3 rounded-lg transition-all duration-300 ${
-              activeTab === "contract"
+              activeTab === "achievements"
                 ? "bg-white text-red-900"
                 : "border border-white text-white hover:bg-white/10"
             }`}
           >
-            Contract Projects
+            Achievements
           </button>
         </div>
 

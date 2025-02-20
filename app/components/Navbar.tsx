@@ -39,8 +39,8 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about-us" },
     { name: "Expertise", href: "/expertise" },
-    { name: "Featured Projects", href: "/projects" },
-    { name: "QHSE", href: "/qhse" },
+    { name: "Achievements", href: "/projects" },
+    { name: "ESG", href: "/gentec-esg" },
   ];
 
   return (
