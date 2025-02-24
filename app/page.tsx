@@ -1,13 +1,147 @@
-/* eslint-disable react/no-unescaped-entities */
+"use client";
 import Link from "next/link";
 import Image from "next/image";
-// import HeroSketch from "./components/HeroSketch";
 import ServiceCarousel from "./components/Carousel";
 import ClientMarquee from "./components/Marquee";
 import HeroCarousel from "./components/HeroCarousel";
 import ScrollButton from "./components/ScrollButton";
+import AnimatedCounter from "./components/AnimatedCount";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function Home() {
+  // Add refs for all sections
+  const aboutSectionRef = useRef(null);
+  const metricsSectionRef = useRef(null);
+  const servicesSectionRef = useRef(null);
+  const clientsSectionRef = useRef(null);
+
+  // Main animation setup
+  useEffect(() => {
+    // Register ScrollTrigger plugin safely (only in browser)
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero section animation (simple fade in)
+      gsap.fromTo(
+        ".hero-content",
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          delay: 0.3, // Small delay to ensure content is ready
+        }
+      );
+
+      // About section animations
+      gsap.fromTo(
+        ".about-text",
+        { opacity: 0, x: -50 },
+        {
+          scrollTrigger: {
+            trigger: aboutSectionRef.current,
+            start: "top 80%",
+          },
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        }
+      );
+
+      gsap.fromTo(
+        ".about-image",
+        { opacity: 0, x: 50 },
+        {
+          scrollTrigger: {
+            trigger: aboutSectionRef.current,
+            start: "top 80%",
+          },
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          delay: 0.2,
+          ease: "power3.out",
+        }
+      );
+
+      // Metrics section animations
+      gsap.fromTo(
+        ".metric-item",
+        { opacity: 0, y: 30 },
+        {
+          scrollTrigger: {
+            trigger: metricsSectionRef.current,
+            start: "top 80%",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "back.out(1.7)",
+        }
+      );
+
+      // Services section animations
+      gsap.fromTo(
+        ".services-text",
+        { opacity: 0, x: -40 },
+        {
+          scrollTrigger: {
+            trigger: servicesSectionRef.current,
+            start: "top 80%",
+          },
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        }
+      );
+
+      gsap.fromTo(
+        ".services-carousel",
+        { opacity: 0, x: 40 },
+        {
+          scrollTrigger: {
+            trigger: servicesSectionRef.current,
+            start: "top 80%",
+          },
+          opacity: 1,
+          x: 0,
+          duration: 0.8,
+          delay: 0.2,
+          ease: "power3.out",
+        }
+      );
+
+      // Clients section animations
+      gsap.fromTo(
+        ".clients-header",
+        { opacity: 0, y: 30 },
+        {
+          scrollTrigger: {
+            trigger: clientsSectionRef.current,
+            start: "top 80%",
+          },
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        }
+      );
+    }
+
+    // Clean up
+    return () => {
+      if (typeof window !== "undefined" && ScrollTrigger) {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      }
+    };
+  }, []);
+
   const services = [
     {
       name: "Drilling & Drilling Support Services",
@@ -59,14 +193,19 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen bg-white">
-      {/* Content Container */}
       {/* Hero Section */}
-      <HeroCarousel />
+      <div className="hero-content">
+        <HeroCarousel />
+      </div>
+
       {/* About Us Section */}
-      <section className="relative py-20 bg-white px-8 overflow-hidden">
+      <section
+        ref={aboutSectionRef}
+        className="relative py-20 bg-white px-8 overflow-hidden"
+      >
         <div className="w-full max-w-7xl mx-auto px-4 relative z-20">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
+            <div className="about-text">
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
                 Who we <span className="text-red-600">Are</span>
               </h2>
@@ -83,7 +222,7 @@ export default function Home() {
                 Learn More About Us
               </Link>
             </div>
-            <div>
+            <div className="about-image">
               <Image
                 src="/static/imgs/image6.png"
                 alt="Gentec Facilities"
@@ -91,6 +230,7 @@ export default function Home() {
                 height={500}
                 className="w-full rounded-lg shadow-lg"
                 quality={90}
+                priority={true}
               />
             </div>
           </div>
@@ -98,7 +238,7 @@ export default function Home() {
       </section>
 
       {/* Metrics Section */}
-      <section className="relative py-20 bg-white">
+      <section ref={metricsSectionRef} className="relative py-20 bg-white">
         {/* Dot Matrix Background */}
         <div>
           <div
@@ -134,7 +274,7 @@ export default function Home() {
           {/* Metrics Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
             {/* Metric 1 */}
-            <div className="flex flex-col items-center text-center">
+            <div className="metric-item flex flex-col items-center text-center">
               <div className="text-red-600 mb-4">
                 <svg
                   className="w-12 h-12"
@@ -154,13 +294,13 @@ export default function Home() {
                 </svg>
               </div>
               <div className="text-4xl font-bold text-gray-900 mb-2">
-                40,000+
+                <AnimatedCounter endValue={40000} suffix="+" useCommas={true} />
               </div>
               <div className="text-gray-600">Dives and more</div>
             </div>
 
             {/* Metric 2 */}
-            <div className="flex flex-col items-center text-center">
+            <div className="metric-item flex flex-col items-center text-center">
               <div className="text-red-600 mb-4">
                 <svg
                   className="w-12 h-12"
@@ -184,13 +324,13 @@ export default function Home() {
                 </svg>
               </div>
               <div className="text-4xl font-bold text-gray-900 mb-2">
-                11 Mill
+                <AnimatedCounter endValue={11} suffix=" Mill" />
               </div>
               <div className="text-gray-600">Man-hours subsea work</div>
             </div>
 
             {/* Metric 3 */}
-            <div className="flex flex-col items-center text-center">
+            <div className="metric-item flex flex-col items-center text-center">
               <div className="text-red-600 mb-4">
                 <svg
                   className="w-12 h-12"
@@ -211,12 +351,14 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">150+</div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">
+                <AnimatedCounter endValue={150} suffix="+" />
+              </div>
               <div className="text-gray-600">Projects</div>
             </div>
 
             {/* Metric 4 */}
-            <div className="flex flex-col items-center text-center">
+            <div className="metric-item flex flex-col items-center text-center">
               <div className="text-red-600 mb-4">
                 <svg
                   className="w-12 h-12"
@@ -240,7 +382,9 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <div className="text-4xl font-bold text-gray-900 mb-2">100%</div>
+              <div className="text-4xl font-bold text-gray-900 mb-2">
+                <AnimatedCounter endValue={100} suffix="%" />
+              </div>
               <div className="text-gray-600">Repeat Customers</div>
             </div>
           </div>
@@ -248,11 +392,14 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="relative py-20 bg-white px-8">
+      <section
+        ref={servicesSectionRef}
+        className="relative py-20 bg-white px-8"
+      >
         <div className="w-full max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:gap-12">
             {/* Text Content */}
-            <div className="lg:w-1/3 mb-8 lg:mb-0">
+            <div className="services-text lg:w-1/3 mb-8 lg:mb-0">
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
                 Our <span className="text-red-600">Services</span>
               </h2>
@@ -278,7 +425,7 @@ export default function Home() {
             </div>
 
             {/* Carousel */}
-            <div className="lg:w-2/3">
+            <div className="services-carousel lg:w-2/3">
               <ServiceCarousel services={services} />
             </div>
           </div>
@@ -286,8 +433,11 @@ export default function Home() {
       </section>
 
       {/* Clients Section */}
-      <section className="relative py-20 bg-white overflow-hidden">
-        {/* Dot Matrix Background */}
+      <section
+        ref={clientsSectionRef}
+        className="relative py-20 bg-white overflow-hidden"
+      >
+        {/* Background elements */}
         <div>
           <div
             className="absolute inset-0 opacity-10"
@@ -315,13 +465,13 @@ export default function Home() {
 
         {/* Content Container */}
         <div className="w-full max-w-7xl mx-auto px-4 relative z-20">
-          <div className="text-center mb-12">
+          <div className="clients-header text-center mb-12">
             <h2 className="text-5xl font-bold text-gray-900">
               Our <span className="text-red-600">Clients</span>
             </h2>
             <p className="text-gray-600 mt-4">
-              We've had the privilege of working with leading companies in the
-              oil and gas industry
+              We&apos;ve had the privilege of working with leading companies in
+              the oil and gas industry
             </p>
           </div>
           <ClientMarquee clients={clients} />

@@ -59,8 +59,8 @@ const Navbar = () => {
               <Image
                 src="/logo2.svg"
                 alt="Gentec Logo"
-                width={100}
-                height={50}
+                width={120}
+                height={70}
                 priority
               />
             </Link>
@@ -76,13 +76,13 @@ const Navbar = () => {
                   ${
                     scrolled
                       ? "text-gray-800 hover:text-red-600"
-                      : "text-white hover:text-red-400"
+                      : "text-red hover:text-red-600 hover:border-b-red-600"
                   }
                   ${
                     pathname === item.href
                       ? scrolled
-                        ? "text-red-600 font-bold"
-                        : "text-red-400 font-bold"
+                        ? "text-red-600 font-bold border-b border-b-red-600"
+                        : "text-red-600 font-bold border-b border-b-red-600"
                       : ""
                   }`}
               >

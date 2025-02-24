@@ -28,7 +28,7 @@ const ClientMarquee: React.FC<ClientMarqueeProps> = ({ clients }) => {
           {duplicatedClients.map((client, index) => (
             <div
               key={`${client.name}-${index}`}
-              className="mx-4 flex items-center justify-center w-40 h-20 flex-shrink-0"
+              className="mx-4 flex items-center justify-center w-28 h-16 flex-shrink-0"
             >
               <div className="relative w-full h-16">
                 <Image
@@ -39,7 +39,8 @@ const ClientMarquee: React.FC<ClientMarqueeProps> = ({ clients }) => {
                   style={{
                     objectFit: "contain",
                   }}
-                  className="opacity-70 hover:opacity-100 transition-opacity duration-300"
+                  draggable="false"
+                  className="grayscale-[0] opacity-70 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
             </div>

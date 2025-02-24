@@ -35,21 +35,18 @@ export default function Loading() {
     let progressTimer: NodeJS.Timeout;
     let mounted = true;
 
-    // Start progress animation
     progressTimer = setInterval(() => {
       if (mounted) {
         setProgress((prev) => calculateProgress(prev));
       }
-    }, 100); // Increase interval duration
+    }, 100);
 
-    // Cleanup
     return () => {
       mounted = false;
       clearInterval(progressTimer);
     };
   }, [calculateProgress]);
 
-  // When component is about to unmount, complete the progress
   useEffect(() => {
     const handleBeforeUnmount = () => {
       setProgress(100);
@@ -64,7 +61,7 @@ export default function Loading() {
 
   return (
     <div
-      className="fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center"
+      className="absolute top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center"
       style={{ opacity }}
     >
       <div className="w-64">
