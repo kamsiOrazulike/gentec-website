@@ -72,7 +72,6 @@ const CarouselSlide: React.FC<CarouselSlideProps> = React.memo(
 );
 CarouselSlide.displayName = "CarouselSlide";
 
-// Define NavigationDotsProps interface
 interface NavigationDotsProps {
   slides: {
     title: string;
@@ -87,7 +86,6 @@ interface NavigationDotsProps {
   onChange: (index: number) => void;
 }
 
-// NavigationDots component remains the same
 const NavigationDots = React.memo(
   ({ slides, currentSlide, onChange }: NavigationDotsProps) => (
     <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-4 z-30">
@@ -112,7 +110,6 @@ const HeroCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isHovering, setIsHovering] = useState(false);
 
-  // Updated slides data with isDisabled property
   const slides = useMemo(
     () => [
       {
@@ -140,7 +137,7 @@ const HeroCarousel = () => {
         link: "/ede-upstream",
         linkText: "Coming Soon",
         isPriority: false,
-        isDisabled: true, // Set to disabled
+        isDisabled: true,
       },
     ],
     []

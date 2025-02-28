@@ -1,4 +1,3 @@
-// OverviewContent.tsx
 import React from "react";
 
 const inspectionServices = [

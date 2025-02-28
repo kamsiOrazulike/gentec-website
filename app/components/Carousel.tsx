@@ -56,12 +56,10 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  // Reset current index when screen size changes
   useEffect(() => {
     setCurrentIndex(0);
   }, [cardsPerSlide]);
 
-  // Auto-scroll timer
   useEffect(() => {
     if (!isDragging) {
       const timer = setInterval(() => {
@@ -78,7 +76,6 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
     setCurrentIndex(index);
   };
 
-  // Touch handlers
   const handleTouchStart = (e: React.TouchEvent) => {
     setTouchStart(e.targetTouches[0].clientX);
   };
@@ -104,10 +101,8 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
 
     if (Math.abs(diff) > minSwipeDistance) {
       if (diff > 0 && currentIndex < totalSlides - 1) {
-        // Swiped left
         setCurrentIndex((prev) => prev + 1);
       } else if (diff < 0 && currentIndex > 0) {
-        // Swiped right
         setCurrentIndex((prev) => prev - 1);
       }
     }
@@ -116,7 +111,6 @@ const ServiceCarousel = ({ services }: ServiceCarouselProps) => {
     setTouchEnd(null);
   };
 
-  // Mouse drag handlers for desktop
   const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
     setStartX(e.pageX - (carouselRef.current?.offsetLeft || 0));

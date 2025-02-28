@@ -54,7 +54,6 @@ const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       }
     };
 
-    // Create the animation
     ScrollTrigger.create({
       trigger: counterElement,
       start: "top 80%",

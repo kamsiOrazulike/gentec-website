@@ -11,19 +11,15 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function Home() {
-  // Add refs for all sections
   const aboutSectionRef = useRef(null);
   const metricsSectionRef = useRef(null);
   const servicesSectionRef = useRef(null);
   const clientsSectionRef = useRef(null);
 
-  // Main animation setup
   useEffect(() => {
-    // Register ScrollTrigger plugin safely (only in browser)
     if (typeof window !== "undefined") {
       gsap.registerPlugin(ScrollTrigger);
 
-      // Hero section animation (simple fade in)
       gsap.fromTo(
         ".hero-content",
         { opacity: 0, y: 20 },
@@ -32,11 +28,10 @@ export default function Home() {
           y: 0,
           duration: 1,
           ease: "power3.out",
-          delay: 0.3, // Small delay to ensure content is ready
+          delay: 0.3,
         }
       );
 
-      // About section animations
       gsap.fromTo(
         ".about-text",
         { opacity: 0, x: -50 },
@@ -68,7 +63,6 @@ export default function Home() {
         }
       );
 
-      // Metrics section animations
       gsap.fromTo(
         ".metric-item",
         { opacity: 0, y: 30 },
@@ -85,7 +79,6 @@ export default function Home() {
         }
       );
 
-      // Services section animations
       gsap.fromTo(
         ".services-text",
         { opacity: 0, x: -40 },
@@ -117,7 +110,6 @@ export default function Home() {
         }
       );
 
-      // Clients section animations
       gsap.fromTo(
         ".clients-header",
         { opacity: 0, y: 30 },
@@ -134,7 +126,6 @@ export default function Home() {
       );
     }
 
-    // Clean up
     return () => {
       if (typeof window !== "undefined" && ScrollTrigger) {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());

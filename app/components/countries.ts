@@ -1,5 +1,4 @@
 //Countries vertex points
-
 export const countryPoints = [
     {
       name: "Afghanistan",

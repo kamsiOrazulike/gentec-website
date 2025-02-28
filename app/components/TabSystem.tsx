@@ -1,4 +1,3 @@
-// TabSystem.tsx
 "use client";
 import React, { useState } from "react";
 
@@ -27,7 +26,6 @@ const TabSystem: React.FC<TabSystemProps> = ({
     });
   };
 
-  // Get indexes for previous/next navigation
   const currentIndex = tabs.findIndex((tab) => tab.id === activeTab);
   const hasPrevious = currentIndex > 0;
   const hasNext = currentIndex < tabs.length - 1;

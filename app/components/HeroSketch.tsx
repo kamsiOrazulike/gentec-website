@@ -4,7 +4,6 @@ import { countryPoints } from "./countries";
 import dynamic from "next/dynamic";
 import React, { useRef, useEffect, useState } from "react";
 
-// Types
 type VertexCommand = "m" | "M";
 type VertexCoordinate = [number, number];
 type VertexMoveCommand = [VertexCommand, number, number];
@@ -30,10 +29,9 @@ interface Bounds {
 interface CountryPoint {
   name: string;
   vertexPoint: VertexPoint[];
-  colour?: string; // Optional color property
+  colour?: string;
 }
 
-// The main Globe visualization component
 const GlobeComponent: React.FC = () => {
   const sketchRef = useRef<HTMLDivElement>(null);
   const p5InstanceRef = useRef<any>(null);
@@ -41,7 +39,6 @@ const GlobeComponent: React.FC = () => {
   useEffect(() => {
     let p5: any;
 
-    // Dynamically import p5 only on the client side
     import("p5").then((p5Module) => {
       p5 = p5Module.default;
 
@@ -175,8 +172,6 @@ const GlobeComponent: React.FC = () => {
 
             countryPoints.forEach((country) => {
               if (!country.vertexPoint) return;
-
-              // Set different colors based on country name
               const countryName = country.name.toLowerCase();
               let fillColor;
 
@@ -188,7 +183,7 @@ const GlobeComponent: React.FC = () => {
                   fillColor = this.p.color(255, 0, 0);
                   break;
                 default:
-                  fillColor = this.p.color(150, 150, 150); // Default gray for other countries
+                  fillColor = this.p.color(150, 150, 150);
               }
 
               mapGraphics.fill(fillColor);
@@ -207,7 +202,6 @@ const GlobeComponent: React.FC = () => {
           this.p.sphere(this.size);
           this.p.pop();
 
-          // Simple constant rotation
           this.rotationY += 0.002;
         }
       }
@@ -216,7 +210,6 @@ const GlobeComponent: React.FC = () => {
         let globe: Globe;
 
         p.setup = () => {
-          // Use a responsive size calculation with more granular breakpoints
           const screenWidth = window.innerWidth;
           let size, globeSize;
 
@@ -269,12 +262,10 @@ const GlobeComponent: React.FC = () => {
   );
 };
 
-// Dynamically import the Globe component
 const DynamicGlobe = dynamic(() => Promise.resolve(GlobeComponent), {
   ssr: false,
 });
 
-/// Create a simple loading component
 const SimpleLoader = () => {
   return (
     <div className="w-full h-full flex justify-center items-center">
@@ -283,7 +274,6 @@ const SimpleLoader = () => {
   );
 };
 
-// Main page component
 export default function HeroSketch() {
   const [isLoading, setIsLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
@@ -291,7 +281,6 @@ export default function HeroSketch() {
   useEffect(() => {
     const initializeApp = async () => {
       try {
-        // Add a minimum delay for loading
         await new Promise((resolve) => setTimeout(resolve, 2000));
         setIsLoading(false);
         setShowContent(true);

@@ -50,7 +50,6 @@ const AchievementsContent = () => {
       }
     );
 
-    // Animate year markers
     gsap.fromTo(
       ".year-marker",
       { scale: 0 },
