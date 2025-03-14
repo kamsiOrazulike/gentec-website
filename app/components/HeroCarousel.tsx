@@ -133,7 +133,7 @@ const HeroCarousel = () => {
       {
         title: "Our Upstream",
         subtitle: "Find out more details about Our Ede Upstream.",
-        image: "/static/stock_imgs/4.png",
+        image: "/static/imgs/jackuprig.png",
         link: "/ede-upstream",
         linkText: "Coming Soon",
         isPriority: false,
