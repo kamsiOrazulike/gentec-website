@@ -5,6 +5,10 @@ import TabSystem from "@/components/TabSystem";
 import OverviewContent from "./tabs/Overview";
 import ValuesContent from "./tabs/Values";
 import LeadershipContent from "./tabs/Leadership";
+import OilGasServicesContent from "./tabs/OilGasServices";
+import EngineeringServicesContent from "./tabs/EngineeringServices";
+import LogisticsManagementContent from "./tabs/LogisticsManagementServices";
+import ExplorationProductionContent from "./tabs/ExplorationAndProduction";
 
 export default function About() {
   const tabs = [
@@ -12,6 +16,26 @@ export default function About() {
       id: "overview",
       label: "Company Overview",
       content: <OverviewContent />,
+    },
+    {
+      id: "oil-gas",
+      label: "Oil & Gas Services",
+      content: <OilGasServicesContent />,
+    },
+    {
+      id: "engineering",
+      label: "Engineering Services",
+      content: <EngineeringServicesContent />,
+    },
+    {
+      id: "logistics",
+      label: "Logistics Management",
+      content: <LogisticsManagementContent />,
+    },
+    {
+      id: "exploration",
+      label: "Exploration & Production",
+      content: <ExplorationProductionContent />,
     },
     {
       id: "values",

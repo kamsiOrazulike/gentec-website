@@ -135,32 +135,32 @@ export default function Home() {
 
   const services = [
     {
-      name: "Drilling & Drilling Support Services",
+      name: "Warehousing & Drilling Support Services",
       description:
-        "Comprehensive drilling solutions with expert support to enhance well performance, efficiency, and safety.",
+        "Comprehensive drilling solutions with expert support to enhance well performance, efficiency, and safety. Paired with an expansive warehouse plot for operations.",
       isNew: true,
-      imageSrc: "/static/imgs/image5.png",
+      imageSrc: "/static/media/pipe5.jpg",
     },
     {
       name: "Engineering, Procurement & Construction Management (EPCM)",
       description:
         "Integrated EPCM services, from project planning to execution, ensuring efficiency in oil and gas infrastructure development.",
       isNew: false,
-      imageSrc: "/static/stock_imgs/2.png",
+      imageSrc: "/static/media/working3.jpg",
     },
     {
       name: "Operations & Maintenance",
       description:
         "End-to-end operations and maintenance solutions to optimize asset performance, reliability, and lifecycle efficiency.",
       isNew: true,
-      imageSrc: "/static/stock_imgs/9.jpg",
+      imageSrc: "/static/media/warehouse7.jpg",
     },
     {
       name: "Manpower Supply & Management",
       description:
         "Tailored workforce solutions, providing skilled professionals to meet operational demands and drive productivity.",
       isNew: true,
-      imageSrc: "/static/imgs/gentec6.jpg",
+      imageSrc: "/static/media/working1.jpg",
     },
   ];
 
@@ -215,7 +215,7 @@ export default function Home() {
             </div>
             <div className="about-image">
               <Image
-                src="/static/imgs/image6.png"
+                src="/static/media/warehouse2.jpg"
                 alt="Gentec Facilities"
                 width={800}
                 height={500}

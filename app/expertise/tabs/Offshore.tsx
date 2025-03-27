@@ -36,7 +36,7 @@ const OffshoreContent = () => {
             {/* Image - full width on mobile, partial width on desktop */}
             <div className="w-full md:w-2/3 md:pl-8">
               <Image
-                src="/static/imgs/image5.png"
+                src="/static/media/image5.png"
                 alt="Offshore Drilling"
                 width={400}
                 height={300}

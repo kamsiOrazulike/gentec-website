@@ -38,7 +38,7 @@ const OverviewContent = () => {
         {/* Image Section - responsive sizing */}
         <div className="relative h-[250px] md:h-[400px]">
           <img
-            src="/static/imgs/image6.png"
+            src="/static/media/image6.png"
             alt="GENTEC Operations"
             className="w-full h-full object-cover rounded-lg"
           />

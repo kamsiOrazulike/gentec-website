@@ -9,10 +9,10 @@ const ValuesContent = () => {
         {/* Left Column - Image (responsive height) */}
         <div className="relative w-full h-[400px] rounded-lg overflow-hidden">
           <Image
-            src="/static/imgs/core_values.png"
+            src="/static/media/core_values.png"
             alt="Gentec Values"
             fill
-            className="object-contain bg-black py-4"
+            className="object-contain bg-black invert py-4"
             quality={90}
           />
         </div>
@@ -40,10 +40,10 @@ const ValuesContent = () => {
       <div>
         <div className="relative h-[200px] md:h-[300px] mb-6 md:mb-8 rounded-lg overflow-hidden">
           <Image
-            src="/static/imgs/gentec10.jpg"
+            src="/static/media/people1.jpg"
             alt="Corporate Social Responsibility"
             fill
-            className="object-cover object-top"
+            className="object-cover object-center"
             quality={90}
           />
         </div>

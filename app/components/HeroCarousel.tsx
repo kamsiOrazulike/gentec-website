@@ -113,31 +113,54 @@ const HeroCarousel = () => {
   const slides = useMemo(
     () => [
       {
-        title: "Gentec",
-        subtitle: "Delivering quality technical and logistics services.",
-        image: "/static/imgs/gentec2.jpg",
+        title: "GENTEC GROUP",
+        subtitle:
+          "Delivering quality technical and oil & gas services across the value chain.",
+        image: "/static/media/warehouse2.jpg",
         link: "/about-us",
-        linkText: "Discover Gentec",
+        linkText: "Discover GENTEC",
         isPriority: true,
         isDisabled: false,
       },
       {
-        title: "Our Expertise",
-        subtitle: "Discover what truly sets us apart.",
-        image: "/static/stock_imgs/6.png",
+        title: "Oil & Gas Services",
+        subtitle:
+          "Expert construction, procurement, and drilling operations with strategic partnerships.",
+        image: "/static/media/working9.png",
         link: "/expertise",
-        linkText: "Learn more",
+        linkText: "Explore Services",
         isPriority: false,
         isDisabled: false,
       },
       {
-        title: "Our Upstream",
-        subtitle: "Find out more details about Our Ede Upstream.",
-        image: "/static/imgs/jackuprig.png",
-        link: "/ede-upstream",
-        linkText: "Coming Soon",
+        title: "Engineering Services",
+        subtitle:
+          "Specialized mechanical & electrical maintenance, pipe inspection, and design solutions.",
+        image: "/static/media/working9.jpg",
+        link: "/expertise",
+        linkText: "View Capabilities",
         isPriority: false,
-        isDisabled: true,
+        isDisabled: false,
+      },
+      {
+        title: "Logistics Management",
+        subtitle:
+          "Comprehensive logistics including warehouse, crew change, manpower, and transport services.",
+        image: "/static/media/warehouse1.jpg",
+        link: "/expertise",
+        linkText: "Learn More",
+        isPriority: false,
+        isDisabled: false,
+      },
+      {
+        title: "Exploration & Production",
+        subtitle:
+          "Ede Exploration and Shallow Production Offshore Platform operations.",
+        image: "/static/media/jackuprig.png",
+        link: "/exploration-production",
+        linkText: "Discover E&P",
+        isPriority: false,
+        isDisabled: false,
       },
     ],
     []
@@ -160,25 +183,13 @@ const HeroCarousel = () => {
     return () => clearInterval(timer);
   }, [isHovering, slides.length]);
 
-  const dotPatternStyle = useMemo(
-    () => ({
-      backgroundImage: `
-      radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 1px, transparent 1px),
-      radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.1) 1px, transparent 1px)
-    `,
-      backgroundSize: "20px 20px, 30px 30px",
-      backgroundPosition: "0 0, 10px 10px",
-    }),
-    []
-  );
-
   return (
     <div
-      className="relative h-[88vh] md:h-[96vh] w-full overflow-hidden"
+      className="relative h-[88vh] md:h-[100vh] w-full overflow-hidden"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className="absolute inset-0 z-10" style={dotPatternStyle} />
+      <div className="absolute inset-0 z-10" />
       <div className="relative h-full">
         {slides.map((slide, index) => (
           <CarouselSlide

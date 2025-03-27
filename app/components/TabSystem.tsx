@@ -42,7 +42,7 @@ const TabSystem: React.FC<TabSystemProps> = ({
                   <button
                     key={tab.id}
                     onClick={() => handleTabChange(tab.id)}
-                    className={`whitespace-nowrap py-4 px-1 border-b-2 font-medium text-sm ${
+                    className={`whitespace-nowrap py-4 px-1 border-b-2 font-normal text-xs ${
                       activeTab === tab.id
                         ? "border-red-600 text-red-600"
                         : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"

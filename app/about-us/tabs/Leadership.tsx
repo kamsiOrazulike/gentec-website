@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/no-unescaped-entities */
-// LeadershipContent.tsx
 import React from "react";
 
 const LeadershipContent = () => {

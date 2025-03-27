@@ -14,7 +14,7 @@ const ServiceCard = ({ service }: { service: Service }) => (
   <div className="rounded-xl overflow-hidden flex flex-col h-[500px] md:h-[550px] bg-white border border-black/10 transition-colors duration-300 hover:bg-red-600 group">
     <div className="relative h-64 md:h-72 w-full bg-gray-100">
       <img
-        src={service.imageSrc || "/static/stock_imgs/4.png"}
+        src={service.imageSrc || "/static/media/4.png"}
         alt={service.name}
         className="w-full h-full object-cover"
       />
