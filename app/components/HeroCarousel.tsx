@@ -126,7 +126,7 @@ const HeroCarousel = () => {
         title: "Oil & Gas Services",
         subtitle:
           "Expert construction, procurement, and drilling operations with strategic partnerships.",
-        image: "/static/media/working9.png",
+        image: "/static/media/gentec2.jpg",
         link: "/expertise",
         linkText: "Explore Services",
         isPriority: false,
@@ -136,7 +136,7 @@ const HeroCarousel = () => {
         title: "Engineering Services",
         subtitle:
           "Specialized mechanical & electrical maintenance, pipe inspection, and design solutions.",
-        image: "/static/media/working9.jpg",
+        image: "/static/media/gentec4.jpg",
         link: "/expertise",
         linkText: "View Capabilities",
         isPriority: false,
@@ -146,7 +146,7 @@ const HeroCarousel = () => {
         title: "Logistics Management",
         subtitle:
           "Comprehensive logistics including warehouse, crew change, manpower, and transport services.",
-        image: "/static/media/warehouse1.jpg",
+        image: "/static/media/warehouse8.jpg",
         link: "/expertise",
         linkText: "Learn More",
         isPriority: false,

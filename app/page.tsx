@@ -146,7 +146,7 @@ export default function Home() {
       description:
         "Integrated EPCM services, from project planning to execution, ensuring efficiency in oil and gas infrastructure development.",
       isNew: false,
-      imageSrc: "/static/media/working3.jpg",
+      imageSrc: "/static/media/gentec5.jpg",
     },
     {
       name: "Operations & Maintenance",
