@@ -116,7 +116,7 @@ const HeroCarousel = () => {
         title: "GENTEC GROUP",
         subtitle:
           "Delivering quality technical and oil & gas services across the value chain.",
-        image: "/static/media/warehouse2.jpg",
+        image: "/static/media/warehouse2.png",
         link: "/about-us",
         linkText: "Discover GENTEC",
         isPriority: true,
@@ -126,7 +126,7 @@ const HeroCarousel = () => {
         title: "Oil & Gas Services",
         subtitle:
           "Expert construction, procurement, and drilling operations with strategic partnerships.",
-        image: "/static/media/gentec2.jpg",
+        image: "/static/media/gentec2.png",
         link: "/expertise",
         linkText: "Explore Services",
         isPriority: false,
@@ -136,7 +136,7 @@ const HeroCarousel = () => {
         title: "Engineering Services",
         subtitle:
           "Specialized mechanical & electrical maintenance, pipe inspection, and design solutions.",
-        image: "/static/media/gentec4.jpg",
+        image: "/static/media/gentec4.png",
         link: "/expertise",
         linkText: "View Capabilities",
         isPriority: false,
@@ -146,7 +146,7 @@ const HeroCarousel = () => {
         title: "Logistics Management",
         subtitle:
           "Comprehensive logistics including warehouse, crew change, manpower, and transport services.",
-        image: "/static/media/warehouse8.jpg",
+        image: "/static/media/warehouse8.png",
         link: "/expertise",
         linkText: "Learn More",
         isPriority: false,

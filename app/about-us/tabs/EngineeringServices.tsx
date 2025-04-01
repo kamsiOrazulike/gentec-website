@@ -8,7 +8,7 @@ const EngineeringServicesContent = () => {
       {/* Header Section */}
       <div className="relative h-[300px] rounded-lg overflow-hidden mb-8">
         <Image
-          src="/static/media/warehouse8.jpg"
+          src="/static/media/warehouse8.png"
           alt="Engineering Services"
           fill
           className="object-cover"
@@ -59,7 +59,7 @@ const EngineeringServicesContent = () => {
 
         <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden">
           <Image
-            src="/static/media/working5.jpg"
+            src="/static/media/working5.png"
             alt="Mechanical & Electrical Maintenance"
             fill
             className="object-cover"
@@ -73,7 +73,7 @@ const EngineeringServicesContent = () => {
         <div className="relative order-last md:order-first h-[600px] md:h-full rounded-lg overflow-hidden">
           <div className="h-1/2 relative">
             <Image
-              src="/static/media/pipe3.jpg"
+              src="/static/media/pipe3.png"
               alt="Pipe Inspection"
               fill
               className="object-cover"
@@ -82,7 +82,7 @@ const EngineeringServicesContent = () => {
           </div>
           <div className="h-1/2 relative">
             <Image
-              src="/static/media/people5.jpg"
+              src="/static/media/people5.png"
               alt="Design Services"
               fill
               className="object-cover"

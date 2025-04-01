@@ -8,7 +8,7 @@ const OilGasServicesContent = () => {
       {/* Header Section */}
       <div className="relative h-[300px] rounded-lg overflow-hidden mb-8">
         <Image
-          src="/static/media/working6.jpg"
+          src="/static/media/working6.png"
           alt="Oil & Gas Services"
           fill
           className="object-cover"
@@ -68,7 +68,7 @@ const OilGasServicesContent = () => {
 
         <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden">
           <Image
-            src="/static/media/working2.jpg"
+            src="/static/media/working2.png"
             alt="Construction & Procurement"
             fill
             className="object-cover"

@@ -64,7 +64,7 @@ const ExplorationProductionContent = () => {
 
         <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden">
           <Image
-            src="/static/media/exploration.jpg"
+            src="/static/media/exploration.png"
             alt="Ede Exploration"
             fill
             className="object-cover"
@@ -77,7 +77,7 @@ const ExplorationProductionContent = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden order-2 md:order-1">
           <Image
-            src="/static/media/offshore-platform.jpg"
+            src="/static/media/offshore-platform.png"
             alt="Offshore Platform"
             fill
             className="object-cover"

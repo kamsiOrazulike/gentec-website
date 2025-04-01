@@ -139,28 +139,28 @@ export default function Home() {
       description:
         "Comprehensive drilling solutions with expert support to enhance well performance, efficiency, and safety. Paired with an expansive warehouse plot for operations.",
       isNew: true,
-      imageSrc: "/static/media/pipe5.jpg",
+      imageSrc: "/static/media/pipe5.png",
     },
     {
       name: "Engineering, Procurement & Construction Management (EPCM)",
       description:
         "Integrated EPCM services, from project planning to execution, ensuring efficiency in oil and gas infrastructure development.",
       isNew: false,
-      imageSrc: "/static/media/gentec5.jpg",
+      imageSrc: "/static/media/gentec5.png",
     },
     {
       name: "Operations & Maintenance",
       description:
         "End-to-end operations and maintenance solutions to optimize asset performance, reliability, and lifecycle efficiency.",
       isNew: true,
-      imageSrc: "/static/media/warehouse7.jpg",
+      imageSrc: "/static/media/warehouse7.png",
     },
     {
       name: "Manpower Supply & Management",
       description:
         "Tailored workforce solutions, providing skilled professionals to meet operational demands and drive productivity.",
       isNew: true,
-      imageSrc: "/static/media/working1.jpg",
+      imageSrc: "/static/media/working1.png",
     },
   ];
 
@@ -215,7 +215,7 @@ export default function Home() {
             </div>
             <div className="about-image">
               <Image
-                src="/static/media/warehouse2.jpg"
+                src="/static/media/warehouse2.png"
                 alt="Gentec Facilities"
                 width={800}
                 height={500}

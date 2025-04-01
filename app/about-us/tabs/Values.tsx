@@ -40,7 +40,7 @@ const ValuesContent = () => {
       <div>
         <div className="relative h-[200px] md:h-[300px] mb-6 md:mb-8 rounded-lg overflow-hidden">
           <Image
-            src="/static/media/people1.jpg"
+            src="/static/media/people1.png"
             alt="Corporate Social Responsibility"
             fill
             className="object-cover object-center"

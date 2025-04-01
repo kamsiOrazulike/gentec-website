@@ -35,7 +35,7 @@ const SubseaContent = () => {
             {/* Image - full width on mobile, partial width on desktop */}
             <div className="w-full md:w-2/3 md:pl-8">
               <Image
-                src="/static/media/gentec3.jpg"
+                src="/static/media/gentec3.png"
                 alt="Subsea Engineering"
                 width={400}
                 height={300}

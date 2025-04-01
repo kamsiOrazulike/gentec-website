@@ -8,7 +8,7 @@ const LogisticsManagementContent = () => {
       {/* Header Section */}
       <div className="relative h-[300px] rounded-lg overflow-hidden mb-8">
         <Image
-          src="/static/media/warehouse2.jpg"
+          src="/static/media/warehouse2.png"
           alt="Logistics Management"
           fill
           className="object-cover"
@@ -61,7 +61,7 @@ const LogisticsManagementContent = () => {
 
         <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden">
           <Image
-            src="/static/media/warehouse3.jpg"
+            src="/static/media/warehouse3.png"
             alt="Warehouse Operations"
             fill
             className="object-cover"
@@ -74,7 +74,7 @@ const LogisticsManagementContent = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden order-2 md:order-1">
           <Image
-            src="/static/media/people5.jpg"
+            src="/static/media/people5.png"
             alt="Crew and Manpower"
             fill
             className="object-cover"
@@ -182,7 +182,7 @@ const LogisticsManagementContent = () => {
         <div className="relative h-[300px] md:h-full rounded-lg overflow-hidden">
           <div className="h-1/2 relative">
             <Image
-              src="/static/media/marine-transport.jpg"
+              src="/static/media/marine-transport.png"
               alt="Marine Transport"
               fill
               className="object-cover"
@@ -191,7 +191,7 @@ const LogisticsManagementContent = () => {
           </div>
           <div className="h-1/2 relative">
             <Image
-              src="/static/media/land-transport.jpg"
+              src="/static/media/land-transport.png"
               alt="Land Transport"
               fill
               className="object-cover"
