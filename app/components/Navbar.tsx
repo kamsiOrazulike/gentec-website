@@ -3,12 +3,14 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -37,10 +39,43 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about-us" },
-    { name: "Expertise", href: "/expertise" },
-    { name: "Achievements", href: "/projects" },
+    { name: "Our Achievements", href: "/projects" },
     { name: "ESG", href: "/gentec-esg" },
   ];
+
+  const expertiseItems = [
+    { name: "Oil & Gas Services", href: "/expertise/oil-gas-services" },
+    { name: "Engineering Services", href: "/expertise/engineering-services" },
+    { name: "Logistics Management", href: "/expertise/logistics-management" },
+    {
+      name: "Exploration & Production",
+      href: "/expertise/exploration-production",
+    },
+  ];
+
+  // Check if any expertise subpage is active
+  const isExpertiseActive = expertiseItems.some(
+    (item) => pathname === item.href
+  );
+
+  // Function to handle smooth scrolling to contact section
+  const scrollToContact = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    // Close mobile menu if open
+    if (isOpen) {
+      setIsOpen(false);
+    }
+
+    const contactSection = document.getElementById("contact-section");
+    if (contactSection) {
+      // Smooth scroll to the contact section
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
 
   return (
     <nav
@@ -71,33 +106,36 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`px-3 py-2 text-xs font-light tracking-wide transition-colors duration-300 
+                className={`px-3 py-2 text-sm font-light tracking-wide transition-colors duration-300 
                   ${
                     scrolled
                       ? "text-gray-800 hover:text-red-600"
-                      : "text-red hover:text-red-600 hover:border-b-red-600"
+                      : "text-red hover:text-red-600"
                   }
-                  ${
-                    pathname === item.href
-                      ? scrolled
-                        ? "text-red-600 font-bold border-b border-b-red-600"
-                        : "text-red-600 font-bold border-b border-b-red-600"
-                      : ""
-                  }`}
+                  ${pathname === item.href ? "text-red-600 font-black" : ""}`}
               >
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className={`ml-4 px-4 py-2 text-xs font-light transition-all duration-300 border ${
+
+            {/* Expertise Dropdown */}
+            <Dropdown
+              label="Our Expertise"
+              items={expertiseItems}
+              isScrolled={scrolled}
+            />
+
+            {/* Contact Us button - now with onClick handler */}
+            <button
+              onClick={scrollToContact}
+              className={`ml-4 px-4 py-2 text-sm font-light transition-all duration-300 border cursor-pointer ${
                 scrolled
                   ? "bg-transparent text-black hover:text-white hover:bg-red-500 border-black hover:border-red-500"
                   : "bg-transparent text-white hover:text-black hover:bg-white border-white hover:border-white"
               }`}
             >
               Contact Us
-            </Link>
+            </button>
           </div>
 
           {/* Mobile menu button */}
@@ -144,13 +182,53 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className="text-black text-2xl font-light py-4 transition-colors duration-300 hover:text-red-600 hover:pl-4"
-              onClick={() => setIsOpen(false)}
+
+            {/* Mobile Expertise Dropdown */}
+            <div className="py-4">
+              <button
+                onClick={() => setMobileDropdownOpen(!mobileDropdownOpen)}
+                className={`flex items-center text-black text-2xl font-light transition-colors duration-300 w-full text-left
+                  ${isExpertiseActive ? "text-red-600 font-normal" : ""}
+                  ${mobileDropdownOpen ? "mb-2" : ""}
+                `}
+              >
+                Our Expertise
+                <ChevronDown
+                  className={`ml-2 h-6 w-6 transition-transform duration-200 ${
+                    mobileDropdownOpen ? "transform rotate-180" : ""
+                  }`}
+                />
+              </button>
+
+              {/* Mobile Dropdown Items */}
+              {mobileDropdownOpen && (
+                <div className="pl-6 flex flex-col space-y-4 mt-2 mb-2">
+                  {expertiseItems.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`text-black text-xl font-light transition-colors duration-300
+                        ${
+                          pathname === item.href
+                            ? "text-red-600 font-normal pl-4 border-l-4 border-red-600"
+                            : "hover:text-red-600 hover:pl-4"
+                        }`}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Contact Us - now with onClick handler */}
+            <button
+              onClick={scrollToContact}
+              className="text-black text-2xl font-light py-4 transition-colors duration-300 hover:text-red-600 hover:pl-4 text-left w-full"
             >
               Contact Us
-            </Link>
+            </button>
           </div>
 
           {/* Footer with Logo Divider */}

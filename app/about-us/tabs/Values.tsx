@@ -12,7 +12,7 @@ const ValuesContent = () => {
             src="/static/media/core_values.png"
             alt="Gentec Values"
             fill
-            className="object-contain bg-black invert py-4"
+            className="object-contain bg-transparent py-4"
             quality={90}
           />
         </div>

@@ -5,10 +5,6 @@ import TabSystem from "@/components/TabSystem";
 import OverviewContent from "./tabs/Overview";
 import ValuesContent from "./tabs/Values";
 import LeadershipContent from "./tabs/Leadership";
-import OilGasServicesContent from "./tabs/OilGasServices";
-import EngineeringServicesContent from "./tabs/EngineeringServices";
-import LogisticsManagementContent from "./tabs/LogisticsManagementServices";
-import ExplorationProductionContent from "./tabs/ExplorationAndProduction";
 
 export default function About() {
   const tabs = [
@@ -16,26 +12,6 @@ export default function About() {
       id: "overview",
       label: "Company Overview",
       content: <OverviewContent />,
-    },
-    {
-      id: "oil-gas",
-      label: "Oil & Gas Services",
-      content: <OilGasServicesContent />,
-    },
-    {
-      id: "engineering",
-      label: "Engineering Services",
-      content: <EngineeringServicesContent />,
-    },
-    {
-      id: "logistics",
-      label: "Logistics Management",
-      content: <LogisticsManagementContent />,
-    },
-    {
-      id: "exploration",
-      label: "Exploration & Production",
-      content: <ExplorationProductionContent />,
     },
     {
       id: "values",
@@ -60,28 +36,22 @@ export default function About() {
       {/* Content Container */}
       <div className="relative z-10">
         {/* Vision Section */}
-        <div className="relative">
-          <div className="relative h-[48vh] bg-transparent w-full" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="max-w-4xl text-center text-white px-4">
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Our Vision
-              </h1>
-              <p className="text-md md:text-lg">
-                To be a world-class Oil and Gas Development company. Delivering
-                exceptional value through continuous innovation, expertise, and
-                commitment to excellence.
-              </p>
-            </div>
+        <div className="relative py-20">
+          <div className="max-w-4xl mx-auto text-center text-white px-4">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Vision</h1>
+            <p className="text-md md:text-lg max-w-2xl mx-auto">
+              To be a world-class Oil and Gas Development company. Delivering
+              exceptional value through continuous innovation, expertise, and
+              commitment to excellence.
+            </p>
           </div>
         </div>
 
         {/* Content Section with Tab System */}
-        <div className="bg-white min-h-screen md:mx-20">
+        <div className="container mx-auto px-4 md:px-6 pb-16">
           <TabSystem tabs={tabs} defaultActiveTab="overview" />
         </div>
       </div>
-      <div className="h-16 bg-transparent"></div>
       <ScrollButton />
     </main>
   );

@@ -13,8 +13,23 @@ export default {
         foreground: "var(--foreground)",
       },
       backgroundImage: {
-        'image4': "url('/static/media/4.png')",
-        'image9': "url('/static/media/image4.png')",
+        image4: "url('/static/media/4.png')",
+        image9: "url('/static/media/image4.png')",
+      },
+      animation: {
+        "bounce-slow": "bounce 3s infinite",
+        "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        float: "float 3s ease-in-out infinite",
+      },
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+      },
+      transitionProperty: {
+        height: "height",
+        spacing: "margin, padding",
       },
     },
   },

@@ -113,31 +113,21 @@ const HeroCarousel = () => {
   const slides = useMemo(
     () => [
       {
-        title: "GENTEC GROUP",
-        subtitle:
-          "Delivering quality technical and oil & gas services across the value chain.",
-        image: "/static/media/warehouse2.png",
-        link: "/about-us",
-        linkText: "Discover GENTEC",
-        isPriority: true,
-        isDisabled: false,
-      },
-      {
         title: "Oil & Gas Services",
         subtitle:
           "Expert construction, procurement, and drilling operations with strategic partnerships.",
-        image: "/static/media/gentec2.png",
-        link: "/expertise",
+        image: "/static/media/gentec5.png",
+        link: "/expertise/oil-gas-services",
         linkText: "Explore Services",
-        isPriority: false,
+        isPriority: true,
         isDisabled: false,
       },
       {
         title: "Engineering Services",
         subtitle:
           "Specialized mechanical & electrical maintenance, pipe inspection, and design solutions.",
-        image: "/static/media/gentec4.png",
-        link: "/expertise",
+        image: "/static/media/gentec3.png",
+        link: "/expertise/engineering-services",
         linkText: "View Capabilities",
         isPriority: false,
         isDisabled: false,
@@ -147,7 +137,7 @@ const HeroCarousel = () => {
         subtitle:
           "Comprehensive logistics including warehouse, crew change, manpower, and transport services.",
         image: "/static/media/warehouse8.png",
-        link: "/expertise",
+        link: "/expertise/logistics-management",
         linkText: "Learn More",
         isPriority: false,
         isDisabled: false,
@@ -157,8 +147,8 @@ const HeroCarousel = () => {
         subtitle:
           "Ede Exploration and Shallow Production Offshore Platform operations.",
         image: "/static/media/jackuprig.png",
-        link: "/exploration-production",
-        linkText: "Discover E&P",
+        link: "/expertise/exploration-production",
+        linkText: "Discover Project Ede",
         isPriority: false,
         isDisabled: false,
       },

@@ -13,7 +13,7 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 export default function Home() {
   const aboutSectionRef = useRef(null);
   const metricsSectionRef = useRef(null);
-  const servicesSectionRef = useRef(null);
+  const expertiseSectionRef = useRef(null);
   const clientsSectionRef = useRef(null);
 
   useEffect(() => {
@@ -80,11 +80,11 @@ export default function Home() {
       );
 
       gsap.fromTo(
-        ".services-text",
+        ".expertise-text",
         { opacity: 0, x: -40 },
         {
           scrollTrigger: {
-            trigger: servicesSectionRef.current,
+            trigger: expertiseSectionRef.current,
             start: "top 80%",
           },
           opacity: 1,
@@ -95,11 +95,11 @@ export default function Home() {
       );
 
       gsap.fromTo(
-        ".services-carousel",
+        ".expertise-carousel",
         { opacity: 0, x: 40 },
         {
           scrollTrigger: {
-            trigger: servicesSectionRef.current,
+            trigger: expertiseSectionRef.current,
             start: "top 80%",
           },
           opacity: 1,
@@ -133,34 +133,38 @@ export default function Home() {
     };
   }, []);
 
-  const services = [
+  const expertiseAreas = [
     {
-      name: "Warehousing & Drilling Support Services",
+      name: "Oil & Gas Services",
       description:
-        "Comprehensive drilling solutions with expert support to enhance well performance, efficiency, and safety. Paired with an expansive warehouse plot for operations.",
-      isNew: true,
-      imageSrc: "/static/media/pipe5.png",
-    },
-    {
-      name: "Engineering, Procurement & Construction Management (EPCM)",
-      description:
-        "Integrated EPCM services, from project planning to execution, ensuring efficiency in oil and gas infrastructure development.",
+        "Expert construction, procurement, and drilling operations with strategic partnerships. Our comprehensive solutions enhance operational efficiency and safety throughout the value chain.",
       isNew: false,
-      imageSrc: "/static/media/gentec5.png",
+      imageSrc: "/static/media/gentec2.png",
+      link: "/expertise/oil-gas-services",
     },
     {
-      name: "Operations & Maintenance",
+      name: "Engineering Services",
       description:
-        "End-to-end operations and maintenance solutions to optimize asset performance, reliability, and lifecycle efficiency.",
-      isNew: true,
-      imageSrc: "/static/media/warehouse7.png",
+        "Specialized mechanical & electrical maintenance, pipe inspection, and design solutions. Our engineering expertise ensures reliable and innovative technical services for complex projects.",
+      isNew: false,
+      imageSrc: "/static/media/gentec4.png",
+      link: "/expertise/engineering-services",
     },
     {
-      name: "Manpower Supply & Management",
+      name: "Logistics Management",
       description:
-        "Tailored workforce solutions, providing skilled professionals to meet operational demands and drive productivity.",
+        "Comprehensive logistics including warehouse management, crew change coordination, manpower supply, and marine & land transport services for seamless operations.",
+      isNew: false,
+      imageSrc: "/static/media/warehouse8.png",
+      link: "/expertise/logistics-management",
+    },
+    {
+      name: "Exploration & Production",
+      description:
+        "Ede Exploration and Shallow Production Offshore Platform operations, providing specialized expertise in managing and optimizing offshore production assets.",
       isNew: true,
-      imageSrc: "/static/media/working1.png",
+      imageSrc: "/static/media/jackuprig.png",
+      link: "/expertise/exploration-production",
     },
   ];
 
@@ -382,42 +386,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Section */}
+      {/* Expertise Section - Changed from Services */}
       <section
-        ref={servicesSectionRef}
+        ref={expertiseSectionRef}
         className="relative py-20 bg-white px-8"
       >
         <div className="w-full max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:gap-12">
             {/* Text Content */}
-            <div className="services-text lg:w-1/3 mb-8 lg:mb-0">
+            <div className="expertise-text lg:w-1/3 mb-8 lg:mb-0">
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Our <span className="text-red-600">Services</span>
+                Our <span className="text-red-600">Expertise</span>
               </h2>
               <div className="prose prose-lg text-gray-600 mb-8">
                 <p>
-                  We offer comprehensive solutions tailored to meet your
-                  industry needs. Our expert team brings years of experience and
-                  innovative approaches to every project, ensuring excellence in
-                  delivery across all our service offerings.
+                  We provide comprehensive solutions across four key business
+                  areas, delivering technical excellence and innovative
+                  approaches to every project. Our expert teams bring years of
+                  experience and industry knowledge to meet the unique
+                  challenges of the oil and gas sector.
                 </p>
                 <p className="mt-4">
-                  From initial consultation to project completion, we maintain
-                  the highest standards of quality and safety while delivering
-                  value to our clients.
+                  From engineering services to exploration and production, we
+                  maintain the highest standards of quality and safety while
+                  delivering exceptional value to our clients.
                 </p>
               </div>
               <Link
-                href="/projects"
+                href="/expertise"
                 className="border border-black text-black px-8 py-3 rounded-none hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 inline-block text-base"
               >
-                View All Projects
+                Explore Our Expertise
               </Link>
             </div>
 
             {/* Carousel */}
-            <div className="services-carousel lg:w-2/3">
-              <ServiceCarousel services={services} />
+            <div className="expertise-carousel lg:w-2/3">
+              <ServiceCarousel services={expertiseAreas} />
             </div>
           </div>
         </div>

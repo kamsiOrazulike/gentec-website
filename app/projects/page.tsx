@@ -1,50 +1,34 @@
 "use client";
 import React from "react";
 import ScrollButton from "@/components/ScrollButton";
-import TabSystem from "@/components/TabSystem";
-import ProjectsContent from "./tabs/Projects";
-import AchievementsContent from "./tabs/Achievements";
+import TimelineContent from "./Timeline";
 
 export default function ProjectsPage() {
-  const tabs = [
-    {
-      id: "projects",
-      label: "Projects",
-      content: <ProjectsContent />,
-    },
-    {
-      id: "achievements",
-      label: "Achievements",
-      content: <AchievementsContent />,
-    },
-  ];
-
   return (
     <main className="min-h-screen bg-gradient-to-b from-red-950 to-red-800 relative overflow-hidden">
-      {/* Background Elements - setting to a lower z-index */}
+      {/* Background Elements */}
       <div className="absolute inset-0 opacity-20" style={{ zIndex: 0 }}>
         <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-red-600 filter blur-3xl"></div>
         <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-yellow-600 filter blur-3xl"></div>
       </div>
 
       {/* Hero Section */}
-      <section className="relative h-[48vh] z-10 flex items-center justify-center">
-        <div className="text-center text-white px-4">
+      <section className="relative h-[30vh] z-10 flex items-center justify-center">
+        <div className="text-center text-white px-4 pt-24">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Projects & Achievements
           </h1>
           <p className="text-md md:text-lg max-w-3xl mx-auto">
-            Showcasing our major projects and industry recognition
+            A journey of innovation, recognition, and impact
           </p>
         </div>
       </section>
 
-      {/* Tab container with higher z-index to ensure it's clickable */}
-      <div className="bg-white min-h-screen md:mx-20 relative z-20">
-        <TabSystem tabs={tabs} defaultActiveTab="projects" />
+      {/* Content Container */}
+      <div className="bg-transparent min-h-screen relative z-20 py-12 px-4 md:px-12">
+        <TimelineContent />
       </div>
 
-      <div className="h-16 bg-transparent relative z-10"></div>
       <ScrollButton />
     </main>
   );
