@@ -48,7 +48,7 @@ const ESGContent = () => {
   return (
     <div className="bg-white">
       {/* Enhanced Hero Section */}
-      <div className="relative h-[50vh] md:h-[70vh] w-full">
+      <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] w-full">
         <Image
           src="/static/media/warehouse2.png"
           alt="Environmental, Social, and Governance"
@@ -58,38 +58,41 @@ const ESGContent = () => {
           quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-end pb-16 md:pb-24">
-            <div className="max-w-3xl">
-              <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-md">
+          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-24">
+            {/* Adjusted height, padding, and spacing for mobile */}
+            <div className="max-w-3xl space-y-4 sm:space-y-6">
+              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-md">
                 Environmental, Social and Governance (ESG)
               </h1>
-              <p className="text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed mb-8">
+              <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
                 GENTEC drives sustainability through ethical operations,
                 environmental responsibility, and strong governance, ensuring
                 long-term value for stakeholders.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#environmental"
-                  className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
-                >
-                  <LeafIcon className="w-5 h-5" />
-                  <span>Environmental</span>
-                </a>
-                <a
-                  href="#social"
-                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
-                >
-                  <UsersIcon className="w-5 h-5" />
-                  <span>Social</span>
-                </a>
-                <a
-                  href="#governance"
-                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
-                >
-                  <ScaleIcon className="w-5 h-5" />
-                  <span>Governance</span>
-                </a>
+              <div className="overflow-x-auto">
+                <div className="flex gap-4 text-sm whitespace-nowrap">
+                  <a
+                    href="#environmental"
+                    className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors flex items-center justify-center gap-2"
+                  >
+                    <LeafIcon className="w-5 h-5" />
+                    <span>Environmental</span>
+                  </a>
+                  <a
+                    href="#social"
+                    className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2"
+                  >
+                    <UsersIcon className="w-5 h-5" />
+                    <span>Social</span>
+                  </a>
+                  <a
+                    href="#governance"
+                    className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2"
+                  >
+                    <ScaleIcon className="w-5 h-5" />
+                    <span>Governance</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
