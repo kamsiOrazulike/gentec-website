@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import ScrollButton from "@/components/ScrollButton";
 import TabSystem from "@/components/TabSystem";
 import OverviewContent from "./tabs/Overview";
@@ -26,12 +27,24 @@ export default function About() {
   ];
 
   return (
-    <main className="min-h-screen relative bg-gradient-to-b from-red-950 to-red-800">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20">
-        <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-red-600 filter blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-yellow-600 filter blur-3xl"></div>
+    <main className="min-h-screen relative">
+      {/* Full-width Background Image */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/static/media/jackuprig.png"
+          alt="Gentec Warehouse"
+          layout="fill"
+          objectFit="cover"
+          quality={90}
+          className="opacity-90"
+        />
       </div>
+
+      {/* Gradient Overlay */}
+      <div
+        className="absolute inset-0 z-[1] bg-gradient-to-b from-red-950/20 to-red-800/30"
+        style={{ mixBlendMode: "multiply" }}
+      ></div>
 
       {/* Content Container */}
       <div className="relative z-10">

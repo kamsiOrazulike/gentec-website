@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 "use client";
 
 import React, { useEffect } from "react";
@@ -19,11 +20,9 @@ const ExplorationProductionContent = () => {
 
       // Add click handlers to all anchor links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        // Use arrow function to maintain the correct 'this' context
         anchor.addEventListener("click", (e) => {
           e.preventDefault();
 
-          // Use anchor as a proper HTMLAnchorElement
           const element = anchor as HTMLAnchorElement;
           const targetId = element.getAttribute("href");
 
@@ -67,32 +66,27 @@ const ExplorationProductionContent = () => {
                 Exploration & Production
               </h1>
               <p className="text-white/90 text-lg md:text-xl max-w-2xl leading-relaxed mb-8">
-                Our upstream operations focus on Ede Exploration and Shallow
-                Production Offshore Platform operations with cutting-edge
-                technology and expertise.
+                We drive the exploration and production of hydrocarbons through
+                strategic asset development, innovative technology, and
+                adherence to the highest safety standards.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#exploration"
-                  className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
-                >
-                  <Droplets className="w-5 h-5" />
-                  <span>Ede Exploration</span>
-                </a>
-                <a
-                  href="#production"
-                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
-                >
-                  <Gauge className="w-5 h-5" />
-                  <span>Shallow Production</span>
-                </a>
-                <a
-                  href="#metrics"
-                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
-                >
-                  <BarChart3Icon className="w-5 h-5" />
-                  <span>Performance Metrics</span>
-                </a>
+              <div className="overflow-x-auto">
+                <div className="flex flex-col sm:flex-row gap-4 text-sm">
+                  <a
+                    href="#ede"
+                    className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
+                  >
+                    <Droplets className="w-5 h-5" />
+                    <span>EDE E&P Limited</span>
+                  </a>
+                  <a
+                    href="#ppl229"
+                    className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2 w-full sm:w-auto"
+                  >
+                    <Gauge className="w-5 h-5" />
+                    <span>PPL 229 Asset</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -106,54 +100,52 @@ const ExplorationProductionContent = () => {
 
       {/* Content Sections with Scroll Margins */}
       <div className="container mx-auto px-4 py-16">
-        {/* Ede Exploration Section */}
-        <div id="exploration" className="scroll-mt-24 mb-24">
+        {/* EDE Exploration Section */}
+        <div id="ede" className="scroll-mt-24 mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
-                <Droplets className="w-5 h-5" />
-                <span className="font-semibold">Ede Exploration</span>
+                <div className="flex items-center gap-2">
+                  <Image
+                    src="/static/media/edelogo.png"
+                    alt="EDE E&P Logo"
+                    width={40}
+                    height={40}
+                  />
+                  <span className="font-semibold">
+                    EDE Exploration & Production Limited
+                  </span>
+                </div>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Discovering New Reserves
+                Premier Energy Sector Player
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                The Ede Exploration division is at the forefront of discovering
-                and evaluating new hydrocarbon reserves. Using advanced seismic
-                technology and geological expertise, we identify promising
-                prospects and assess their commercial viability.
+                A premier player in Nigeria's energy sector, dedicated to
+                efficient exploration, development, and production of oil and
+                gas resources.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Exploration Capabilities:
+                  Key Highlights:
                 </h3>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>
-                      Advanced seismic data acquisition and processing
-                    </span>
+                    <span>A Full-cycle energy company</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Geological and geophysical studies</span>
+                    <span>Focus on hydrocarbon exploration</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Reservoir analysis and modeling</span>
+                    <span>Strategic asset development</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Prospect evaluation and risk assessment</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Exploration drilling planning and execution</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Resource estimation and development planning</span>
+                    <span>Innovative technology application</span>
                   </li>
                 </ul>
               </div>
@@ -161,8 +153,8 @@ const ExplorationProductionContent = () => {
 
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-100">
               <Image
-                src="/static/media/exploration.png"
-                alt="Ede Exploration"
+                src="/static/media/gentec10.png"
+                alt="Offshore Operations"
                 fill
                 className="object-cover"
                 quality={90}
@@ -171,15 +163,15 @@ const ExplorationProductionContent = () => {
           </div>
         </div>
 
-        {/* Shallow Production Section */}
-        <div id="production" className="scroll-mt-24 mb-24">
+        {/* PPL 229 Section */}
+        <div id="ppl229" className="scroll-mt-24 mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-100 order-2 md:order-1">
               <Image
-                src="/static/media/offshore-platform.png"
-                alt="Offshore Platform"
+                src="/static/media/ede1.png"
+                alt="PPL 229 Asset Map"
                 fill
-                className="object-cover"
+                className="object-contain bg-white"
                 quality={90}
               />
             </div>
@@ -187,71 +179,63 @@ const ExplorationProductionContent = () => {
             <div className="space-y-6 order-1 md:order-2">
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
                 <Gauge className="w-5 h-5" />
-                <span className="font-semibold">Shallow Production</span>
+                <span className="font-semibold">
+                  Petroleum Prospecting License (PPL) 229
+                </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Offshore Platform Excellence
+                Strategic Offshore Asset
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                As an operator of shallow water production facilities, we manage
-                the entire lifecycle of offshore platforms, ensuring safe,
-                efficient, and environmentally responsible operations. Our
-                experienced team optimizes production while maintaining the
-                highest standards of safety and environmental stewardship.
+                Operator of PPL 229, a strategically positioned asset with
+                promising reserves. Awarded in 2022, covering 61.33 sq. km with
+                significant hydrocarbon potential.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
                 <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                   <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                    Production Operations:
+                    Asset Highlights:
                   </h3>
                   <ul className="text-gray-600 space-y-3">
                     <li className="flex items-start gap-3">
                       <span className="text-red-600 font-bold">•</span>
-                      <span>Platform management and operations</span>
+                      <span>One Discovered Gas and Oil Field</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-red-600 font-bold">•</span>
-                      <span>Production optimization</span>
+                      <span>3 Wells and 2 Sidetracks</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-red-600 font-bold">•</span>
-                      <span>Well monitoring and intervention</span>
+                      <span>Multiple Hydrocarbon Reservoirs</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-red-600 font-bold">•</span>
-                      <span>Facility maintenance and integrity</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-red-600 font-bold">•</span>
-                      <span>Environmental monitoring and compliance</span>
+                      <span>Water Depth ~72 Feet</span>
                     </li>
                   </ul>
                 </div>
                 <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                   <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                    Technical Expertise:
+                    Strategic Significance:
                   </h3>
                   <ul className="text-gray-600 space-y-3">
                     <li className="flex items-start gap-3">
                       <span className="text-red-600 font-bold">•</span>
-                      <span>Reservoir management</span>
+                      <span>Strategic Offshore Location</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-red-600 font-bold">•</span>
-                      <span>Production engineering</span>
+                      <span>Promising Hydrocarbon Reserves</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-red-600 font-bold">•</span>
-                      <span>Facilities engineering</span>
+                      <span>Advanced Exploration Potential</span>
                     </li>
                     <li className="flex items-start gap-3">
                       <span className="text-red-600 font-bold">•</span>
-                      <span>Operations optimization</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <span className="text-red-600 font-bold">•</span>
-                      <span>Decommissioning planning</span>
+                      <span>Key Asset for Future Growth</span>
                     </li>
                   </ul>
                 </div>
@@ -259,58 +243,95 @@ const ExplorationProductionContent = () => {
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Key Performance Metrics Section */}
-        <div id="metrics" className="scroll-mt-24">
-          <div className="space-y-6 text-center mb-12">
+      {/* Data Quality and Drill Stem Tests Section */}
+      <div className="bg-gray-50 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
             <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
               <BarChart3Icon className="w-5 h-5" />
-              <span className="font-semibold">Performance Metrics</span>
+              <span className="font-semibold">Excellent Quality Data</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Our Track Record
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              Advanced Seismic and Well Data Analysis
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-              Our commitment to excellence is reflected in our key performance
-              indicators, showcasing our dedication to operational efficiency,
-              safety, and environmental stewardship.
+            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
+              Our comprehensive data analysis validates key hydrocarbon-bearing
+              reservoirs and demonstrates exceptional well deliverability.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-              <div className="text-4xl font-bold text-red-600 mb-3">99.5%</div>
-              <div className="text-gray-900 font-medium">Production Uptime</div>
-              <div className="text-sm text-gray-500 mt-2">
-                Industry-leading operational reliability
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="relative h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
+              <Image
+                src="/static/media/data1.png"
+                alt="Seismic to Well Ties"
+                fill
+                className="object-contain bg-white"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+                <div className="text-white text-center">
+                  <h3 className="text-2xl font-bold mb-4">
+                    Seismic to Well Ties
+                  </h3>
+                  <p>
+                    Our advanced geological analysis validates the key
+                    hydrocarbon-bearing reservoirs through precise seismic to
+                    well correlations.
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-              <div className="text-4xl font-bold text-red-600 mb-3">15+</div>
-              <div className="text-gray-900 font-medium">Years Experience</div>
-              <div className="text-sm text-gray-500 mt-2">
-                Proven expertise in the field
+            <div className="relative h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
+              <Image
+                src="/static/media/data2.png"
+                alt="Well Log Data"
+                fill
+                className="object-contain bg-white"
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
+                <div className="text-white text-center">
+                  <h3 className="text-2xl font-bold mb-4">Drill Stem Tests</h3>
+                  <p>
+                    Comprehensive drill stem tests have conclusively proven the
+                    well deliverability, demonstrating a production capacity of
+                    approximately 3,000 barrels per day.
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-              <div className="text-4xl font-bold text-red-600 mb-3">5,000+</div>
-              <div className="text-gray-900 font-medium">Barrels Per Day</div>
-              <div className="text-sm text-gray-500 mt-2">
-                Consistent production capacity
+          </div>
+
+          <div className="mt-12 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Seismic Integration
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Precise correlation between seismic data and well logs
+                  validates the key hydrocarbon-bearing reservoirs, ensuring
+                  accurate geological interpretation.
+                </p>
               </div>
-            </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-              <div className="text-4xl font-bold text-red-600 mb-3">0</div>
-              <div className="text-gray-900 font-medium">
-                Environmental Incidents
-              </div>
-              <div className="text-sm text-gray-500 mt-2">
-                Commitment to environmental protection
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Reservoir Potential
+                </h3>
+                <p className="text-gray-600 mb-4">
+                  Advanced analysis demonstrates the significant hydrocarbon
+                  potential, with drill stem tests confirming substantial
+                  production capabilities.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+
       <Scrollbutton />
     </div>
   );

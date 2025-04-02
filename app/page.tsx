@@ -140,7 +140,7 @@ export default function Home() {
         "Expert construction, procurement, and drilling operations with strategic partnerships. Our comprehensive solutions enhance operational efficiency and safety throughout the value chain.",
       isNew: false,
       imageSrc: "/static/media/gentec2.png",
-      link: "/expertise/oil-gas-services",
+      link: "oil-gas-services",
     },
     {
       name: "Engineering Services",
@@ -148,7 +148,7 @@ export default function Home() {
         "Specialized mechanical & electrical maintenance, pipe inspection, and design solutions. Our engineering expertise ensures reliable and innovative technical services for complex projects.",
       isNew: false,
       imageSrc: "/static/media/gentec4.png",
-      link: "/expertise/engineering-services",
+      link: "engineering-services",
     },
     {
       name: "Logistics Management",
@@ -156,7 +156,7 @@ export default function Home() {
         "Comprehensive logistics including warehouse management, crew change coordination, manpower supply, and marine & land transport services for seamless operations.",
       isNew: false,
       imageSrc: "/static/media/warehouse8.png",
-      link: "/expertise/logistics-management",
+      link: "logistics-management",
     },
     {
       name: "Exploration & Production",
@@ -164,7 +164,7 @@ export default function Home() {
         "Ede Exploration and Shallow Production Offshore Platform operations, providing specialized expertise in managing and optimizing offshore production assets.",
       isNew: true,
       imageSrc: "/static/media/jackuprig.png",
-      link: "/expertise/exploration-production",
+      link: "exploration-production",
     },
   ];
 
