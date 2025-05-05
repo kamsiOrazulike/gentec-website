@@ -59,16 +59,15 @@ const LogisticsManagementContent = () => {
           quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-24">
+          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-48 md:pb-24">
             {/* Adjusted height, padding, and spacing for mobile */}
             <div className="max-w-3xl space-y-4 sm:space-y-6">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-md">
-                Logistics Management
+                Logistics & Warehousing
               </h1>
               <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
-                Our logistics solutions are designed to support seamless project
-                execution, ensuring timely movement of personnel, equipment, and
-                materials while optimizing operational efficiency.
+                Our logistics and warehousing services are tailored to support seamless
+                supply chain operations in remote and high-demand project environments.
               </p>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 text-sm whitespace-nowrap">
@@ -115,37 +114,24 @@ const LogisticsManagementContent = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
                 <WarehouseIcon className="w-5 h-5" />
-                <span className="font-semibold">Warehouse</span>
+                <span className="font-semibold">Material Handling & Storage</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                 Secure Storage Solutions
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Secure and well-managed storage facilities for equipment, tools,
-                and critical supplies, ensuring accessibility and inventory
-                control through advanced logistics and management strategies.
+                Secure, well-managed warehousing solutions for bulk and specialised
+                equipment, supported by reliable and efficient inventory control systems.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Warehouse Management Capabilities
+                  Storage Management Capabilities
                 </h3>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Advanced Inventory Tracking</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Secure Storage Infrastructure</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Climate-Controlled Facilities</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Real-Time Asset Management</span>
+                    <span>Bulk Equipment Storage</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
@@ -153,7 +139,19 @@ const LogisticsManagementContent = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Compliance and Safety Protocols</span>
+                    <span>Digital Inventory Tracking</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Secure Facility Management</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Equipment Maintenance Solutions</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Real-Time Inventory Control</span>
                   </li>
                 </ul>
               </div>
@@ -186,47 +184,45 @@ const LogisticsManagementContent = () => {
 
             <div className="space-y-6 order-1 md:order-2">
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
-                <Users className="w-5 h-5" />
-                <span className="font-semibold">Crew Change Management</span>
+                <Truck className="w-5 h-5" />
+                <span className="font-semibold">Project Logistics</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Seamless Workforce Transitions
+                End-to-End Logistics Solutions
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Coordinating seamless workforce transitions with minimal
-                disruption to operations, optimizing scheduling, and ensuring
-                strict compliance with offshore and onshore regulatory
-                requirements through comprehensive logistical planning.
+                End-to-end transportation and freight solutions — including heavy-lift,
+                over-dimensional, and time-critical cargo — executed with precision and reliability.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Crew Management Strategy
+                  Logistics Capabilities
                 </h3>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Detailed Rotation Planning</span>
+                    <span>Heavy-Lift Transportation</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Regulatory Compliance Management</span>
+                    <span>Over-Dimensional Cargo Management</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Travel and Accommodation Coordination</span>
+                    <span>Time-Critical Delivery Services</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Emergency Response Protocols</span>
+                    <span>Freight Solutions</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Performance Tracking</span>
+                    <span>Precision Execution Planning</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Health and Safety Monitoring</span>
+                    <span>Reliable Project Delivery</span>
                   </li>
                 </ul>
               </div>
@@ -240,46 +236,44 @@ const LogisticsManagementContent = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
                 <Users className="w-5 h-5" />
-                <span className="font-semibold">Manpower Supply</span>
+                <span className="font-semibold">Customs & Regulatory Compliance</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Specialized Workforce Solutions
+                Seamless Importation Solutions
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Providing a highly skilled workforce tailored to meet the
-                complex and demanding technical requirements of the oil and gas
-                industry, ensuring optimal performance and operational
-                excellence.
+                Expertise in importation protocols and documentation ensures smooth
+                border clearance and zero delays for critical project materials and equipment.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Manpower Supply Expertise
+                  Compliance Capabilities
                 </h3>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Technical Skills Matching</span>
+                    <span>Importation Protocol Management</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Comprehensive Vetting Process</span>
+                    <span>Documentation Expertise</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Certification Verification</span>
+                    <span>Border Clearance Facilitation</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Continuous Training Support</span>
+                    <span>Zero-Delay Logistics Planning</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Performance Management</span>
+                    <span>Regulatory Compliance Assurance</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Industry-Specific Expertise</span>
+                    <span>Customs Process Optimization</span>
                   </li>
                 </ul>
               </div>

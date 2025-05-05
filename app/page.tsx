@@ -135,25 +135,41 @@ export default function Home() {
 
   const expertiseAreas = [
     {
-      name: "Oil & Gas Services",
+      name: "Drilling & Well Services",
       description:
-        "Expert construction, procurement, and drilling operations with strategic partnerships. Our comprehensive solutions enhance operational efficiency and safety throughout the value chain.",
+        "We provide comprehensive drilling solutions that combine field-proven techniques with advanced technologies to ensure safe, efficient, and productive operations—both onshore and offshore.",
       isNew: false,
       imageSrc: "/static/media/gentec2.png",
       link: "oil-gas-services",
     },
     {
-      name: "Engineering Services",
+      name: "Engineering, Procurement & Construction (EPC)",
       description:
-        "Specialized mechanical & electrical maintenance, pipe inspection, and design solutions. Our engineering expertise ensures reliable and innovative technical services for complex projects.",
+        "We deliver fully integrated EPC solutions that cover the entire project lifecycle, from design to commissioning, tailored to meet the highest standards in the oil and gas industry.",
       isNew: false,
       imageSrc: "/static/media/gentec4.png",
       link: "engineering-services",
     },
     {
-      name: "Logistics Management",
+      name: "Pipeline Services",
       description:
-        "Comprehensive logistics including warehouse management, crew change coordination, manpower supply, and marine & land transport services for seamless operations.",
+        "Our end-to-end pipeline solutions ensure safe, efficient, and regulatory-compliant transport of hydrocarbons across diverse terrains.",
+      isNew: false,
+      imageSrc: "/static/media/pipe2.png",
+      link: "oil-gas-services",
+    },
+    {
+      name: "Fabrication",
+      description:
+        "We deliver precision-engineered fabrication services, offering scalable solutions built to meet the rigorous demands of the oil and gas sector.",
+      isNew: false,
+      imageSrc: "/static/media/working3.png",
+      link: "engineering-services",
+    },
+    {
+      name: "Logistics & Warehousing",
+      description:
+        "Our logistics and warehousing services are tailored to support seamless supply chain operations in remote and high-demand project environments.",
       isNew: false,
       imageSrc: "/static/media/warehouse8.png",
       link: "logistics-management",
@@ -161,7 +177,7 @@ export default function Home() {
     {
       name: "Exploration & Production",
       description:
-        "Ede Exploration and Shallow Production Offshore Platform operations, providing specialized expertise in managing and optimizing offshore production assets.",
+        "We enhance upstream performance through strategic field support, technical innovation, and strict adherence to safety standards—helping partners optimize hydrocarbon recovery and unlock asset value.",
       isNew: true,
       imageSrc: "/static/media/jackuprig.png",
       link: "exploration-production",
@@ -204,11 +220,16 @@ export default function Home() {
               <h2 className="text-5xl font-bold text-gray-900 mb-6">
                 Who we <span className="text-red-600">Are</span>
               </h2>
-              <p className="text-gray-600 mb-12">
+              <p className="text-gray-600 mb-6">
                 Genesis Technical Company Limited (GENTEC), founded in 1997, is
-                a world-class oil and gas technical services company with a
-                strong customer focus and commitment to providing exceptional
-                services.
+                a world-class oil and gas technical services company with an
+                indigenous workforce of over 2,500 professionals—99% of whom are Nigerian—underscoring
+                our commitment to local content and national capacity building.
+              </p>
+              <p className="text-gray-600 mb-12">
+                Through strategic joint ventures, including Shelf Drilling Nigeria and Genesis Kreuz Subsea,
+                we strengthen our technical expertise and extend our service capabilities. Guided by a &quot;Can-Do&quot; mindset,
+                we champion innovation, operational excellence, and strict regulatory compliance in every engagement.
               </p>
               <Link
                 href="/about-us"

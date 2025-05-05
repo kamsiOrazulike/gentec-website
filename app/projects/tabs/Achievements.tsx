@@ -87,7 +87,7 @@ const AchievementsContent = () => {
       year: "2022",
       title: "Officer of the Order of the Niger (OON)",
       description:
-        "Renowned Pan-African titan, Ichie Dr. Nnaeto Orazulike, was bestowed the prestigious national accolade, the Officer of the Order of the Niger (OON) by President Muhammadu Buhari GCFR. The dazzling ceremony unfolded in the vibrant heart of Abuja.",
+        "Renowned Pan-African titan, Ichie Dr. Nnaeto Orazulike, basks in the glory of a prestigious national accolade, the Officer of the Order of the Niger (OON), bestowed on him in 2022 by President Muhammad Buhari GCFR. The dazzling ceremony unfolded in the vibrant heart of Abuja, and captivated all who beheld it.",
       organization: "Federal Government of Nigeria",
       icon: Award,
     },
@@ -95,7 +95,7 @@ const AchievementsContent = () => {
       year: "2022",
       title: "FATE Foundation Model Entrepreneur of the Year Award",
       description:
-        "Ichie Dr. Nnaeto Orazulike (OON), Founder of Genesis Group, won this award for remarkable leadership, sectoral impact, and job creation.",
+        "Ichie Dr. Nnaeto Orazulike (OON), Founder of Genesis Group, wins FATE Foundation Model Entrepreneur of the Year Award 2022 for remarkable leadership, sectoral impact, and job creation.",
       organization: "FATE Foundation",
       icon: Users,
     },
@@ -111,7 +111,7 @@ const AchievementsContent = () => {
       year: "2023",
       title: "National Productivity Merit Award (NPOM)",
       description:
-        "Conferment of National Productivity Merit Award on Genesis Group by President Muhammadu Buhari GCFR in recognition of outstanding contributions to national productivity and economic development.",
+        "2023 Conferment of National Productivity Merit Award (NPOM) on Genesis Group by President Muhammadu Buhari GCFR in recognition of outstanding contributions to national productivity and economic development.",
       organization: "National Productivity Centre",
       icon: Award,
     },

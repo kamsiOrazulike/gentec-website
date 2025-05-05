@@ -60,16 +60,16 @@ const ExplorationProductionContent = () => {
           quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-24">
+          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-48 md:pb-24">
             {/* Adjusted height, padding, and spacing for mobile */}
             <div className="max-w-3xl space-y-4 sm:space-y-6">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-md">
                 Exploration & Production
               </h1>
               <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
-                We drive the exploration and production of hydrocarbons through
-                strategic asset development, innovative technology, and
-                adherence to the highest safety standards.
+                We enhance upstream performance through strategic field support, technical
+                innovation, and strict adherence to safety standards — helping partners
+                optimize hydrocarbon recovery and unlock asset value.
               </p>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 text-sm whitespace-nowrap">
@@ -119,34 +119,34 @@ const ExplorationProductionContent = () => {
                 </div>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Premier Energy Sector Player
+                EDE Exploration and Production Limited
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                A premier player in Nigeria's energy sector, dedicated to
-                efficient exploration, development, and production of oil and
-                gas resources.
+                A full-cycle energy company focused on the exploration, development,
+                and production of hydrocarbons, contributing to Nigeria's energy
+                security and resource optimization.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Key Highlights:
+                  Company Overview:
                 </h3>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>A Full-cycle energy company</span>
+                    <span>Leading upstream operator</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Focus on hydrocarbon exploration</span>
+                    <span>Technical & operational support from GenTec</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Strategic asset development</span>
+                    <span>Focus on efficient resource management</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Innovative technology application</span>
+                    <span>Contribution to national energy security</span>
                   </li>
                 </ul>
               </div>
@@ -185,12 +185,13 @@ const ExplorationProductionContent = () => {
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Strategic Offshore Asset
+                Petroleum Prospecting License (PPL) 229
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Operator of PPL 229, a strategically positioned asset with
-                promising reserves. Awarded in 2022, covering 61.33 sq. km with
-                significant hydrocarbon potential.
+                Awarded in 2022, PPL 229 covers 61.33 sq. km in shallow offshore waters
+                with a depth of approximately 72 feet. The block includes the Ede Field —
+                a confirmed oil and gas field — along with several other discovered but
+                undeveloped hydrocarbon prospects.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">

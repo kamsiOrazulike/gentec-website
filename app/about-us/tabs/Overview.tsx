@@ -57,14 +57,19 @@ const OverviewContent = () => {
 
           <p className="text-gray-600 text-sm md:text-md mb-4 md:mb-6">
             Founded in 1997, GENTEC is a wholly owned subsidiary of the Genesis
-            Group of Companies, delivering world-class oil and gas services with
-            a strong customer focus.
+            Group of Companies, delivering world-class oil and gas technical services
+            in Nigeria. Our identity as a world-class oil and gas technical services
+            company is strengthened by our indigenous workforce of over 2,500 professionals—99%
+            of whom are Nigerian—underscoring our commitment to local content, talent
+            development, and national capacity building.
           </p>
 
           <p className="text-gray-600 text-sm md:text-md mb-4 md:mb-6">
-            Our strategy is to maintain a dedicated focus on technical services
-            and leverage decades of industry experience and an outstanding track
-            record to provide best-in-class operations for our customers.
+            Through strategic joint ventures, including Shelf Drilling Nigeria and Genesis
+            Kreuz Subsea, we strengthen our technical expertise and extend our service
+            capabilities across the value chain. Guided by a &quot;Can-Do&quot; mindset, we
+            champion innovation, operational excellence, and strict regulatory compliance in
+            every engagement.
           </p>
 
           <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-2 md:mb-4">

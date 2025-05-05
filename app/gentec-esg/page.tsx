@@ -58,7 +58,7 @@ const ESGContent = () => {
           quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-24">
+          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-48 md:pb-24">
             {/* Adjusted height, padding, and spacing for mobile */}
             <div className="max-w-3xl space-y-4 sm:space-y-6">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-md">

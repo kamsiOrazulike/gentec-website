@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { WrenchIcon, PiIcon, PencilRulerIcon } from "lucide-react";
+import { WrenchIcon, PiIcon, PencilRulerIcon, Building2 } from "lucide-react";
 import Scrollbutton from "@/components/ScrollButton";
 
 const EngineeringServicesContent = () => {
@@ -59,15 +59,15 @@ const EngineeringServicesContent = () => {
           quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-24">
+          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-48 md:pb-24">
             {/* Adjusted height, padding, and spacing for mobile */}
             <div className="max-w-3xl space-y-4 sm:space-y-6">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-md">
-                Engineering Services
+                Engineering, Procurement & Construction (EPC)
               </h1>
               <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
-                We provide specialized engineering solutions that enhance the
-                performance, reliability, and safety of energy infrastructure.
+                We deliver fully integrated EPC solutions that cover the entire project lifecycle,
+                from design to commissioning, tailored to meet the highest standards in the oil and gas industry.
               </p>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 text-sm whitespace-nowrap">
@@ -107,44 +107,45 @@ const EngineeringServicesContent = () => {
             <div className="space-y-6">
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
                 <PencilRulerIcon className="w-5 h-5" />
-                <span className="font-semibold">Design</span>
+                <span className="font-semibold">Engineering & Design</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Tailored Engineering Solutions
+                Engineering Excellence
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Creating tailored engineering solutions for oil and gas
-                facilities, pipelines, and industrial systems, optimizing
-                performance and safety through comprehensive design approaches.
+                Robust front-end and detailed engineering for pipelines, flow stations,
+                and modular systems, optimized for performance, safety, and scalability.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Engineering Design Capabilities
+                  Engineering Capabilities
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Delivering innovative designs that integrate advanced
-                  technologies for efficiency, sustainability, and regulatory
-                  compliance. Our approach combines cutting-edge technological
-                  insights with deep industry expertise to create robust,
-                  forward-thinking engineering solutions.
+                  Our engineering expertise enables us to design and optimize complex
+                  systems that meet the highest industry standards while ensuring
+                  cost-effectiveness and operational efficiency.
                 </p>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Facility Process Design</span>
+                    <span>Pipeline Engineering</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>3D Modeling</span>
+                    <span>Flow Station Design</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Performance Optimization</span>
+                    <span>Modular System Development</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Regulatory Compliance</span>
+                    <span>Safety Engineering</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Scalability Planning</span>
                   </li>
                 </ul>
               </div>
@@ -179,39 +180,41 @@ const EngineeringServicesContent = () => {
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
                 <WrenchIcon className="w-5 h-5" />
                 <span className="font-semibold">
-                  Mechanical and Electrical Maintenance
+                  Procurement
                 </span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Critical Asset Management
+                Strategic Sourcing Excellence
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Delivering expert maintenance services to ensure seamless
-                operation, reduce downtime, and extend the lifespan of critical
-                assets through proactive and comprehensive maintenance
-                strategies.
+                Strategic sourcing of certified materials and equipment through global supply
+                networks, ensuring cost-efficiency, quality assurance, and timely delivery.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Maintenance Strategy
+                  Procurement Advantages
                 </h3>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Predictive Maintenance</span>
+                    <span>Global Supply Network Access</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Condition Monitoring</span>
+                    <span>Certified Materials Sourcing</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Emergency Response</span>
+                    <span>Cost Optimization</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Asset Lifecycle Management</span>
+                    <span>Quality Assurance Protocols</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Efficient Delivery Systems</span>
                   </li>
                 </ul>
               </div>
@@ -219,36 +222,47 @@ const EngineeringServicesContent = () => {
           </div>
         </div>
 
-        {/* Pipe Inspection Section */}
+        {/* Construction Section */}
         <div id="pipe-inspection" className="scroll-mt-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
-                <PiIcon className="w-5 h-5" />
-                <span className="font-semibold">Pipe Inspection</span>
+                <Building2 className="w-5 h-5" />
+                <span className="font-semibold">Construction & Modular Fabrication</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Pipeline Integrity Management
+                Infrastructure Development
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Utilizing advanced inspection techniques to assess pipeline
-                integrity, prevent potential failures, and enhance overall
-                operational safety through comprehensive and state-of-the-art
-                non-destructive testing methodologies.
+                Execution of large-scale infrastructure and modular units, including tank
+                farms, processing plants, and skid systems built for reliability, fast-track
+                deployment, and regulatory compliance.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Inspection Techniques
+                  Construction Capabilities
                 </h3>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Ultrasonic Examination</span>
+                    <span>Tank Farm Construction</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Visual Integrity Checks</span>
+                    <span>Processing Plant Development</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Skid System Fabrication</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Modular Unit Assembly</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Regulatory Compliance Management</span>
                   </li>
                 </ul>
               </div>

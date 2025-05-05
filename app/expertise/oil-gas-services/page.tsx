@@ -4,7 +4,7 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { Building2, LucideHardHat, Ship, Users } from "lucide-react";
+import { Building2, DrillIcon, Droplet, LucideHardHat, Ship, Users } from "lucide-react";
 import Scrollbutton from "@/components/ScrollButton";
 
 const OilGasServicesContent = () => {
@@ -61,16 +61,17 @@ const OilGasServicesContent = () => {
           quality={90}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-32 md:pb-24">
+          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-48 md:pb-24">
             {/* Adjusted height, padding, and spacing for mobile */}
             <div className="max-w-3xl space-y-4 sm:space-y-6">
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-md">
-                Oil & Gas Services
+                Drilling & Well Services
               </h1>
               <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
-                Our oil and gas services cover the full spectrum of project
-                execution, from infrastructure development to resource
-                extraction, ensuring efficiency and safety at every stage.
+                We provide comprehensive drilling solutions that combine
+                field-proven techniques with advanced technologies to ensure
+                safe, efficient, and productive operations—both onshore and
+                offshore.
               </p>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 text-sm whitespace-nowrap">
@@ -92,8 +93,8 @@ const OilGasServicesContent = () => {
                     href="#drilling"
                     className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2"
                   >
-                    <LucideHardHat className="w-5 h-5" />
-                    <span>Drilling</span>
+                    <Droplet className="w-5 h-5" />
+                    <span>Shelf Drilling</span>
                   </a>
                   <a
                     href="#subsea"
@@ -238,7 +239,7 @@ const OilGasServicesContent = () => {
         <div id="drilling" className="scroll-mt-24 mb-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
+              <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full">
                 <Image
                   src="/static/clients/shelfdrilling.webp"
                   alt="Shelf Drilling Logo"
@@ -246,39 +247,49 @@ const OilGasServicesContent = () => {
                   height={25}
                   className="mr-2"
                 />
-                <span className="font-semibold">Offshore Drilling</span>
+                <span className="font-semibold">Rig Services</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Offshore <span className="text-red-600">Drilling</span>
+                Rig Services{" "}
+                {/* <span className="text-red-600">
+                  (via Shelf Drilling Partnership)
+                </span> */}
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed">
-                Our partnership with SHELF DRILLING, the world's largest
-                contractor of jack-up rigs, gives us the capacity to provide
-                shallow water drilling services for oil and natural gas
-                operators throughout the major unconventional platforms in
-                Nigeria.
+                Our partnership with Shelf Drilling provides access to
+                world-class offshore and onshore rigs, managed and operated
+                under international best practices to ensure safe, efficient,
+                and productive operations.
               </p>
 
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
                 <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Partnership Highlights
+                  Drilling Support
                 </h3>
                 <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Access to latest drilling technologies</span>
+                    <span>Wireline logging</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Highly skilled operational personnel</span>
+                    <span>Directional drilling</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Comprehensive shallow water drilling</span>
+                    <span>Casing and tubing</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="text-red-600 font-bold">•</span>
-                    <span>Proven track record in Nigerian market</span>
+                    <span>Maintenance solutions</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Well Engineering & Planning</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="text-red-600 font-bold">•</span>
+                    <span>Performance optimization</span>
                   </li>
                 </ul>
               </div>
