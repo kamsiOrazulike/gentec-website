@@ -68,10 +68,10 @@ const OilGasServicesContent = () => {
                 Drilling & Well Services
               </h1>
               <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
-                We provide comprehensive drilling solutions that combine
-                field-proven techniques with advanced technologies to ensure
-                safe, efficient, and productive operations—both onshore and
-                offshore.
+                As a full-service oilfield services company, we provide comprehensive 
+                integrated solutions that combine field-proven techniques with advanced 
+                technologies to ensure safe, efficient, and productive operations—both 
+                onshore and offshore throughout Nigeria and the West African region.
               </p>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 text-sm whitespace-nowrap">

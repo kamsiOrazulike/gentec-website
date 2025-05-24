@@ -44,13 +44,13 @@ const Dropdown: React.FC<DropdownProps> = ({ label, items, isScrolled }) => {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`flex items-center px-3 py-2 text-sm font-light tracking-wide transition-colors duration-300 
+        className={`flex items-center px-3 py-2 text-sm font-semibold tracking-wide transition-colors duration-300 
           ${
             isScrolled
               ? "text-gray-800 hover:text-red-600"
-              : "text-red hover:text-red-600"
+              : "text-white hover:text-red-200"
           }
-          ${isActive ? "text-red-600 font-bold" : ""}
+          ${isActive ? "text-red-600 font-bold border-b-2 border-red-500" : ""}
         `}
         aria-expanded={isOpen}
       >
@@ -64,7 +64,7 @@ const Dropdown: React.FC<DropdownProps> = ({ label, items, isScrolled }) => {
 
       {/* Dropdown menu */}
       {isOpen && (
-        <div className="absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+        <div className="absolute left-0 mt-2 w-60 rounded-md shadow-xl bg-white border border-gray-100 z-50">
           <div
             className="py-1"
             role="menu"
@@ -75,10 +75,10 @@ const Dropdown: React.FC<DropdownProps> = ({ label, items, isScrolled }) => {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`block px-4 py-2 text-sm ${
+                className={`block px-6 py-3 text-sm transition-all ${
                   pathname === item.href
-                    ? "text-red-600 font-bold bg-gray-50"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-red-600"
+                    ? "text-red-600 font-bold bg-red-50 border-l-4 border-red-600"
+                    : "text-gray-700 hover:bg-gray-50 hover:text-red-600 hover:pl-8"
                 }`}
                 onClick={() => setIsOpen(false)}
                 role="menuitem"

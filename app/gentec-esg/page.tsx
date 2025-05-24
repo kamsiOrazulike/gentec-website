@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { LeafIcon, UsersIcon, ScaleIcon } from "lucide-react";
 import Scrollbutton from "@/components/ScrollButton";
+import HeroSketch from "@/components/HeroSketch";
 
 const ESGContent = () => {
   useEffect(() => {
@@ -44,54 +45,59 @@ const ESGContent = () => {
 
     initScrolling();
   }, []);
-
+  
   return (
-    <div className="bg-white">
-      {/* Enhanced Hero Section */}
-      <div className="relative h-[60vh] sm:h-[70vh] md:h-[80vh] w-full">
-        <Image
-          src="/static/media/warehouse2.png"
-          alt="Environmental, Social, and Governance"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent">
-          <div className="container mx-auto px-4 h-full flex flex-col justify-end pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-48 md:pb-24">
-            {/* Adjusted height, padding, and spacing for mobile */}
-            <div className="max-w-3xl space-y-4 sm:space-y-6">
-              <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white drop-shadow-md">
-                Environmental, Social and Governance (ESG)
+    <div>
+      <div className="bg-green-900 relative overflow-hidden">
+        <div className="container mx-auto px-4 pt-32 pb-16 relative z-10">
+          <div className="-mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            {/* Left Column - Text Content */}
+            <div className="text-white space-y-6 order-2 lg:order-1">
+              <h2 className="text-xl tracking-wider text-green-300 font-light">2025 Gentec profile</h2>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+                Environmental, Social and Governance <span className="text-green-300">(ESG)</span>
               </h1>
-              <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
-                GENTEC drives sustainability through ethical operations,
-                environmental responsibility, and strong governance, ensuring
-                long-term value for stakeholders.
+              
+              <p className="text-white/90 text-lg max-w-2xl leading-relaxed mt-4">
+                At GenTec, sustainability and safety are core pillars of
+                our operations. We are committed to creating long-term
+                value for our stakeholders through responsible
+                environmental stewardship, ethical governance, and
+                rigorous health and safety standards for our workforce
+                and communities.
               </p>
-              <div className="overflow-x-auto">
-                <div className="flex gap-4 text-sm whitespace-nowrap">
-                  <a
-                    href="#environmental"
-                    className="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-md transition-colors flex items-center justify-center gap-2"
-                  >
-                    <LeafIcon className="w-5 h-5" />
-                    <span>Environmental</span>
-                  </a>
-                  <a
-                    href="#social"
-                    className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2"
-                  >
-                    <UsersIcon className="w-5 h-5" />
-                    <span>Social</span>
-                  </a>
-                  <a
-                    href="#governance"
-                    className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-white/30 transition-colors flex items-center justify-center gap-2"
-                  >
-                    <ScaleIcon className="w-5 h-5" />
-                    <span>Governance</span>
-                  </a>
+              
+              <div className="pt-6 flex flex-wrap gap-4">
+                <a
+                  href="#environmental"
+                  className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-md transition-colors flex items-center justify-center gap-2"
+                >
+                  <LeafIcon className="w-5 h-5" />
+                  <span>Environmental</span>
+                </a>
+                <a
+                  href="#social"
+                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-green-300/30 transition-colors flex items-center justify-center gap-2"
+                >
+                  <UsersIcon className="w-5 h-5" />
+                  <span>Social</span>
+                </a>
+                <a
+                  href="#governance"
+                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-green-300/30 transition-colors flex items-center justify-center gap-2"
+                >
+                  <ScaleIcon className="w-5 h-5" />
+                  <span>Governance</span>
+                </a>
+              </div>
+            </div>
+            
+            {/* Right Column - HeroSketch Globe Component */}
+            <div className="order-1 lg:order-2 flex justify-center items-center py-6 lg:py-16">
+              <div className="w-full h-[300px] md:h-[400px] lg:h-[500px] relative">
+                {/* Import HeroSketch component */}
+                <div className="absolute inset-0 z-10 globe-container">
+                  <HeroSketch />
                 </div>
               </div>
             </div>
@@ -99,232 +105,231 @@ const ESGContent = () => {
         </div>
       </div>
 
-      {/* Content Sections with Scroll Margins */}
-      <div className="container mx-auto px-4 py-16">
-        {/* Environmental Section */}
-        <div id="environmental" className="scroll-mt-24 mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
-                <LeafIcon className="w-5 h-5" />
-                <span className="font-semibold">Environmental</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Sustainable Resource Management
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Committed to sustainable resource management through
-                comprehensive environmental strategies, focusing on emissions
-                reduction and strict compliance with environmental regulations.
-              </p>
-
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Environmental Commitment
-                </h3>
-                <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Emissions Reduction Strategies</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Sustainable Resource Management</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Environmental Compliance</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Conservation Initiatives</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Environmental Impact Assessments</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-100">
-              <Image
-                src="/static/media/warehouse7.png"
-                alt="Environmental Initiatives"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Social Section */}
-        <div id="social" className="scroll-mt-24 mb-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-100 order-2 md:order-1">
-              <Image
-                src="/static/media/people3.png"
-                alt="Social Initiatives"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-            </div>
-
-            <div className="space-y-6 order-1 md:order-2">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
-                <UsersIcon className="w-5 h-5" />
-                <span className="font-semibold">Social</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Community and Employee Empowerment
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Focusing on local capacity development, employee welfare, and
-                meaningful community engagement initiatives that create
-                sustainable social impact.
-              </p>
-
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Social Development Priorities
-                </h3>
-                <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Local Capacity Building</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Employee Development Programs</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Community Engagement</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Diversity and Inclusion</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Health and Safety Initiatives</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Skills Transfer Programs</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Governance Section */}
-        <div id="governance" className="scroll-mt-24">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
-                <ScaleIcon className="w-5 h-5" />
-                <span className="font-semibold">Governance</span>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-                Ethical Business Practices
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Maintaining the highest standards of ethical business practices,
-                ensuring regulatory compliance, and implementing transparent
-                corporate policies that build trust and integrity.
-              </p>
-
-              <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100 mt-8">
-                <h3 className="font-bold text-gray-900 mb-4 text-xl">
-                  Governance Framework
-                </h3>
-                <ul className="text-gray-600 grid grid-cols-1 md:grid-cols-2 gap-3">
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Transparent Decision-Making</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Regulatory Compliance</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Ethical Business Conduct</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Corporate Accountability</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Risk Management</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-red-600 font-bold">•</span>
-                    <span>Stakeholder Transparency</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg border border-gray-100">
-              <Image
-                src="/static/media/gentec9.png"
-                alt="Governance Practices"
-                fill
-                className="object-cover"
-                quality={90}
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* ESG Commitment Section */}
-        <div className="bg-gray-50 py-16 mt-16 rounded-xl">
-          <div className="container mx-auto px-4 text-center">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Our ESG Commitment
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                By integrating ESG principles into our operations, GENTEC
-                ensures long-term value creation for stakeholders and
-                contributes to a more sustainable future.
-              </p>
-              <div className="bg-white p-8 rounded-xl shadow-md border border-gray-100">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div>
-                    <h3 className="text-xl font-bold text-red-600 mb-4">
-                      Environmental
+      {/* Our ESG Commitment Section (White Background) */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold text-green-900 mb-8 text-center">
+              Our ESG Commitment
+            </h2>
+            
+            <div className="grid grid-cols-1 gap-12">
+              {/* Environmental Stewardship Section */}
+              <div id="environmental" className="scroll-mt-24">
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="md:w-1/3">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-green-50 text-green-700 rounded-full mb-4">
+                      <LeafIcon className="w-5 h-5" />
+                      <span className="font-semibold">Environmental</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-green-900 mb-3">
+                      Environmental Stewardship:
                     </h3>
-                    <p className="text-gray-600">
-                      Sustainable resource management, emissions reduction, and
-                      compliance with environmental regulations.
-                    </p>
                   </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-red-600 mb-4">
-                      Social
-                    </h3>
-                    <p className="text-gray-600">
-                      Local capacity development, employee welfare, and
-                      community engagement initiatives.
+                  
+                  <div className="md:w-2/3">
+                    <p className="text-green-800 text-lg leading-relaxed mb-6">
+                      We are dedicated to reducing our environmental footprint through
+                      sustainable practices, efficient resource management, and 
+                      compliance with stringent environmental regulations.
                     </p>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-red-600 mb-4">
-                      Governance
-                    </h3>
-                    <p className="text-gray-600">
-                      Ethical business practices, regulatory compliance, and
-                      transparent corporate policies.
-                    </p>
+                    
+                    <div className="bg-green-50 p-6 rounded-xl shadow-sm border border-green-100">
+                      <h3 className="font-bold text-green-800 mb-4 text-xl">
+                        Our Environmental Initiatives
+                      </h3>
+                      <ul className="text-green-700 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Emissions Reduction & Carbon Footprint Management</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Sustainable Resource Utilization</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Environmental Compliance & Certification</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Ecosystem Preservation Initiatives</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Comprehensive Environmental Impact Assessments</span>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+              </div>
+              
+              {/* Social Responsibility Section */}
+              <div id="social" className="scroll-mt-24">
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="md:w-1/3">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-green-50 text-green-700 rounded-full mb-4">
+                      <UsersIcon className="w-5 h-5" />
+                      <span className="font-semibold">Social</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-green-900 mb-3">
+                      Social Responsibility:
+                    </h3>
+                  </div>
+                  
+                  <div className="md:w-2/3">
+                    <p className="text-green-800 text-lg leading-relaxed mb-6">
+                      We invest in local communities, focusing on capacity building, employee
+                      welfare, and fostering social inclusion through targeted
+                      initiatives that support Nigerian content development.
+                    </p>
+                    
+                    <div className="bg-green-50 p-6 rounded-xl shadow-sm border border-green-100">
+                      <h3 className="font-bold text-green-800 mb-4 text-xl">
+                        Our Social Development Programs
+                      </h3>
+                      <ul className="text-green-700 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Local Content Development & Implementation</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Comprehensive Employee Development Programs</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Strategic Community Engagement & Investment</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Workplace Diversity and Inclusion</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Rigorous Health, Safety & Environment Standards</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Technology & Knowledge Transfer Programs</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Governance Section */}
+              <div id="governance" className="scroll-mt-24">
+                <div className="flex flex-col md:flex-row gap-8 items-start">
+                  <div className="md:w-1/3">
+                    <div className="inline-flex items-center gap-3 px-4 py-2 bg-green-50 text-green-700 rounded-full mb-4">
+                      <ScaleIcon className="w-5 h-5" />
+                      <span className="font-semibold">Governance</span>
+                    </div>
+                    <h3 className="text-2xl font-bold text-green-900 mb-3">
+                      Governance:
+                    </h3>
+                  </div>
+                  
+                  <div className="md:w-2/3">
+                    <p className="text-green-800 text-lg leading-relaxed mb-6">
+                      We uphold the highest standards of integrity with a strong focus on transparent
+                      decision-making, ethical business practices, and rigorous
+                      regulatory compliance across our operations.
+                    </p>
+                    
+                    <div className="bg-green-50 p-6 rounded-xl shadow-sm border border-green-100">
+                      <h3 className="font-bold text-green-800 mb-4 text-xl">
+                        Our Governance Framework
+                      </h3>
+                      <ul className="text-green-700 grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Transparent Corporate Decision-Making</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Stringent Regulatory Compliance</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Ethical Business Conduct & Anti-Corruption</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Clear Corporate Accountability Structure</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Comprehensive Risk Management Framework</span>
+                        </li>
+                        <li className="flex items-start gap-3">
+                          <span className="text-green-600 font-bold">•</span>
+                          <span>Stakeholder Engagement & Transparency</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Full Green Banner */}
+      <div className="bg-green-900 py-16 relative overflow-hidden">
+        <div className="absolute inset-0 w-full h-full opacity-10">
+          <Image 
+            src="/static/media/gentec9.png"
+            alt="Background Pattern"
+            fill
+            className="object-cover opacity-5"
+          />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">
+              Our Commitment to Sustainability
+            </h2>
+            <p className="text-white/90 text-lg leading-relaxed mb-8">
+              By integrating ESG principles into our operations, GENTEC
+              ensures long-term value creation for stakeholders and
+              contributes to a more sustainable future for Nigeria and beyond.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-green-300/30">
+                <LeafIcon className="w-10 h-10 text-green-300 mb-4 mx-auto" />
+                <h3 className="text-xl font-semibold text-green-300 mb-3">
+                  Environmental
+                </h3>
+                <p className="text-white/80">
+                  Sustainable resource management, emissions reduction, and
+                  compliance with environmental regulations.
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-green-300/30">
+                <UsersIcon className="w-10 h-10 text-green-300 mb-4 mx-auto" />
+                <h3 className="text-xl font-semibold text-green-300 mb-3">
+                  Social
+                </h3>
+                <p className="text-white/80">
+                  Local capacity development, employee welfare, and
+                  community engagement initiatives.
+                </p>
+              </div>
+              <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-green-300/30">
+                <ScaleIcon className="w-10 h-10 text-green-300 mb-4 mx-auto" />
+                <h3 className="text-xl font-semibold text-green-300 mb-3">
+                  Governance
+                </h3>
+                <p className="text-white/80">
+                  Ethical business practices, regulatory compliance, and
+                  transparent corporate policies.
+                </p>
               </div>
             </div>
           </div>

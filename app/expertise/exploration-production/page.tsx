@@ -67,9 +67,10 @@ const ExplorationProductionContent = () => {
                 Exploration & Production
               </h1>
               <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
-                We enhance upstream performance through strategic field support, technical
-                innovation, and strict adherence to safety standards — helping partners
-                optimize hydrocarbon recovery and unlock asset value.
+                As an indigenous company with significant upstream capabilities, we enhance 
+                exploration and production performance through strategic field development,
+                technical innovation, and strict adherence to international safety standards — helping 
+                partners optimize hydrocarbon recovery and unlock asset value in Nigeria's petroleum sector.
               </p>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 text-sm whitespace-nowrap">

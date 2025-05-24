@@ -28,10 +28,11 @@ const ValuesContent = () => {
           <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-8">
             Our reputation is founded on the ability to deliver world-class
             services with a strong customer focus and commitment to providing
-            services that meets applicable regulatory and client requirements.
-            At GENTEC, we conduct periodic audits to continually monitor and
-            improve our processes, making us a partner of choice to major Oil
-            and Gas companies.
+            services that meet applicable regulatory and client requirements.
+            At GENTEC, we adhere to the highest international standards with ISO 9001:2015,
+            ISO 14001:2015, and ISO 45001:2018 certifications. We conduct periodic audits 
+            to continually monitor and improve our processes, making us a partner of 
+            choice to major Oil and Gas companies in Nigeria and beyond.
           </p>
         </div>
       </div>
@@ -55,8 +56,9 @@ const ValuesContent = () => {
         </div>
         <p className="text-gray-600 text-sm md:text-base mb-4 md:mb-8">
           GENTEC is committed to a practical and open approach to Corporate and
-          Social Responsibility (CSR). Our CSR program focuses on doing the
-          right thing, managing risks, and investing sustainably in the
+          Social Responsibility (CSR). As a Nigerian company with deep roots in the communities
+          where we operate, our CSR program focuses on doing the right thing, managing risks, 
+          promoting Nigerian content development, and investing sustainably in the
           communities we serve. We carefully consider environmental and social
           impacts and strive to manage them responsibly to ensure long-term
           business success.
@@ -69,23 +71,25 @@ const ValuesContent = () => {
           </li>
           <li>
             Ensuring compliance with health, safety, environmental, and social
-            regulations while fostering continuous improvement.
+            regulations while fostering continuous improvement through our ISO-certified 
+            management systems.
           </li>
           <li>
             Prioritizing emergency preparedness and contingency planning to
-            respond to incidents effectively.
+            respond to incidents effectively across all operational sites.
           </li>
           <li>
             Promoting a culture where accidents and near-misses are reported,
-            investigated, and lessons learned are shared.
+            investigated, and lessons learned are shared throughout the organization.
           </li>
           <li>
-            Consulting with stakeholders on health, safety, environmental, and
-            social performance to align with community expectations.
+            Consulting with local stakeholders on health, safety, environmental, and
+            social performance to align with community expectations and provide sustainable
+            development opportunities.
           </li>
           <li>
-            Displaying this policy at all GENTEC premises and making it publicly
-            available.
+            Supporting local content development through skills transfer, employment 
+            opportunities, and capacity building in our host communities.
           </li>
         </ul>
       </div>

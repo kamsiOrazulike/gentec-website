@@ -66,8 +66,10 @@ const LogisticsManagementContent = () => {
                 Logistics & Warehousing
               </h1>
               <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
-                Our logistics and warehousing services are tailored to support seamless
-                supply chain operations in remote and high-demand project environments.
+                With extensive infrastructure including 91,000 square meters of open yard
+                warehousing space supported by cranes, trucks, and earth moving equipment,
+                our logistics services ensure seamless supply chain operations across
+                Nigeria&apos;s challenging and remote project environments.
               </p>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 text-sm whitespace-nowrap">

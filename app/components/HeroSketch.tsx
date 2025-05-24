@@ -177,13 +177,19 @@ const GlobeComponent: React.FC = () => {
 
               switch (countryName) {
                 case "nigeria":
-                  fillColor = this.p.color(255, 0, 0);
+                  fillColor = this.p.color(34, 139, 34); // Forest Green for sustainability
                   break;
                 case "united arab emirates":
-                  fillColor = this.p.color(255, 0, 0);
+                  fillColor = this.p.color(34, 139, 34); // Forest Green for sustainability
+                  break;
+                case "ghana":
+                case "cameroon":
+                case "kenya":
+                case "south africa":
+                  fillColor = this.p.color(46, 125, 50); // Slightly different green for sustainability focus
                   break;
                 default:
-                  fillColor = this.p.color(150, 150, 150);
+                  fillColor = this.p.color(180, 180, 180); // Lighter gray for contrast
               }
 
               mapGraphics.fill(fillColor);
@@ -215,16 +221,16 @@ const GlobeComponent: React.FC = () => {
 
           if (screenWidth < 768) {
             // Mobile view
-            size = screenWidth * 0.8;
-            globeSize = size * 0.3;
+            size = screenWidth * 0.7;
+            globeSize = size * 0.25;
           } else if (screenWidth >= 768 && screenWidth < 1024) {
             // Tablet/iPad view
-            size = screenWidth * 0.9;
-            globeSize = size * 0.3;
+            size = screenWidth * 0.6;
+            globeSize = size * 0.25;
           } else {
             // Desktop view
-            size = Math.min(screenWidth, window.innerHeight);
-            globeSize = size * 0.3;
+            size = Math.min(screenWidth * 0.9, window.innerHeight * 0.9);
+            globeSize = size * 0.25;
           }
 
           p.createCanvas(size, size, p.WEBGL);
@@ -235,9 +241,9 @@ const GlobeComponent: React.FC = () => {
 
         p.draw = () => {
           p.background(0, 0, 0, 0);
-          p.ambientLight(200);
-          p.pointLight(0, 0, 0, 0, 0, 50);
-          p.directionalLight(255, 255, 255, 1, 1, -1);
+          p.ambientLight(180);
+          p.pointLight(100, 200, 100, 0, 0, 50); // Green-tinted light
+          p.directionalLight(220, 255, 220, 1, 1, -1); // Slight green cast
           globe?.draw();
         };
       };
@@ -257,7 +263,7 @@ const GlobeComponent: React.FC = () => {
   return (
     <div
       ref={sketchRef}
-      className="w-full flex justify-center items-center min-h-[250px] md:min-h-[400px] lg:min-h-[500px]"
+      className="w-full flex justify-center items-center min-h-[200px] md:min-h-[300px] lg:min-h-[350px]"
     />
   );
 };
@@ -269,7 +275,7 @@ const DynamicGlobe = dynamic(() => Promise.resolve(GlobeComponent), {
 const SimpleLoader = () => {
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900" />
+      <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-green-600" />
     </div>
   );
 };
@@ -298,31 +304,11 @@ export default function HeroSketch() {
       {isLoading ? (
         <SimpleLoader />
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-          {/* Left side - Globe */}
-          <div className="h-full overflow-hidden">
+        <div className="flex justify-center items-center">
+          {/* Globe */}
+          <div className="overflow-hidden" style={{ maxWidth: "70%", margin: "0 auto" }}>
             {showContent && <DynamicGlobe />}
           </div>
-
-          {/* Right side - Text content */}
-          {showContent && (
-            <div className="text-center lg:text-left px-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                World-Class Oil and Gas
-                <span className="text-red-600"> Services</span>
-              </h1>
-              <p className="text-gray-600 text-md sm:text-xl mb-8">
-                Delivering exceptional warehousing, logistics, and engineering
-                solutions since 1997.
-              </p>
-              <a
-                href="/about-us"
-                className="border border-black text-black px-8 py-3 rounded-nonehover:bg-white hover:bg-red-500 hover:border-red-500 hover:text-white transition-all duration-300 mt-4 text-base"
-              >
-                Learn More About Us
-              </a>
-            </div>
-          )}
         </div>
       )}
     </div>

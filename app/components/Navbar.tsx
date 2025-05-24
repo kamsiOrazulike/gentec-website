@@ -81,38 +81,39 @@ const Navbar = () => {
     <nav
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-gray-200 shadow-sm"
-          : "bg-transparent"
+          ? "bg-white shadow-lg border-b-2 border-red-500 backdrop-blur-sm"
+          : "bg-black/20 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Image
                 src="/logo2.svg"
                 alt="Gentec Logo"
-                width={120}
-                height={70}
+                width={140}
+                height={80}
                 priority
+                className="py-2"
               />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-6">
             {navItems.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={`px-3 py-2 text-sm font-light tracking-wide transition-colors duration-300 
+                className={`px-3 py-2 text-sm font-semibold tracking-wide transition-colors duration-300 
                   ${
                     scrolled
                       ? "text-gray-800 hover:text-red-600"
-                      : "text-red hover:text-red-600"
+                      : "text-white hover:text-red-200"
                   }
-                  ${pathname === item.href ? "text-red-600 font-black" : ""}`}
+                  ${pathname === item.href ? "text-red-600 font-bold border-b-2 border-red-500 shadow-sm" : ""}`}
               >
                 {item.name}
               </Link>
@@ -128,10 +129,10 @@ const Navbar = () => {
             {/* Contact Us button - now with onClick handler */}
             <button
               onClick={scrollToContact}
-              className={`ml-4 px-4 py-2 text-sm font-light transition-all duration-300 border cursor-pointer ${
+              className={`ml-4 px-6 py-2.5 text-sm font-bold tracking-wide transition-all duration-300 rounded-md shadow-lg hover:shadow-xl ${
                 scrolled
-                  ? "bg-transparent text-black hover:text-white hover:bg-red-500 border-black hover:border-red-500"
-                  : "bg-transparent text-white hover:text-black hover:bg-white border-white hover:border-white"
+                  ? "bg-red-600 text-white hover:bg-red-700 border-2 border-red-600"
+                  : "bg-white text-red-600 hover:bg-red-50 border-2 border-white"
               }`}
             >
               Contact Us

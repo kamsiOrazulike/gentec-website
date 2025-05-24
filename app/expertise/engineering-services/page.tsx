@@ -67,7 +67,9 @@ const EngineeringServicesContent = () => {
               </h1>
               <p className="text-white/90 text-sm sm:text-base md:text-xl max-w-2xl leading-relaxed">
                 We deliver fully integrated EPC solutions that cover the entire project lifecycle,
-                from design to commissioning, tailored to meet the highest standards in the oil and gas industry.
+                from concept design through detailed engineering to procurement, construction, 
+                and commissioning—all tailored to meet international quality standards and local 
+                content requirements in the Nigerian oil and gas industry.
               </p>
               <div className="overflow-x-auto">
                 <div className="flex gap-4 text-sm whitespace-nowrap">

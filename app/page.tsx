@@ -137,7 +137,7 @@ export default function Home() {
     {
       name: "Drilling & Well Services",
       description:
-        "We provide comprehensive drilling solutions that combine field-proven techniques with advanced technologies to ensure safe, efficient, and productive operations—both onshore and offshore.",
+        "We provide comprehensive drilling solutions through our joint venture with Shelf Drilling, combining field-proven techniques with advanced technologies to ensure safe, efficient, and productive operations across onshore and offshore locations in Nigeria and West Africa.",
       isNew: false,
       imageSrc: "/static/media/gentec2.png",
       link: "oil-gas-services",
@@ -145,7 +145,7 @@ export default function Home() {
     {
       name: "Engineering, Procurement & Construction (EPC)",
       description:
-        "We deliver fully integrated EPC solutions that cover the entire project lifecycle, from design to commissioning, tailored to meet the highest standards in the oil and gas industry.",
+        "As experts in integrated project delivery, we provide comprehensive EPC solutions covering the entire project lifecycle from concept engineering and detailed design to procurement, construction, and commissioning, all tailored to meet international quality standards in the oil and gas industry.",
       isNew: false,
       imageSrc: "/static/media/gentec4.png",
       link: "engineering-services",
@@ -169,7 +169,7 @@ export default function Home() {
     {
       name: "Logistics & Warehousing",
       description:
-        "Our logistics and warehousing services are tailored to support seamless supply chain operations in remote and high-demand project environments.",
+        "Our comprehensive logistics and warehousing services include 91,000 square meters of open yard warehousing space supported by cranes, trucks, and earth moving equipment, ensuring seamless supply chain operations in remote and high-demand project environments across Nigeria.",
       isNew: false,
       imageSrc: "/static/media/warehouse8.png",
       link: "logistics-management",
@@ -222,14 +222,15 @@ export default function Home() {
               </h2>
               <p className="text-gray-600 mb-6">
                 Genesis Technical Company Limited (GENTEC), founded in 1997, is
-                a world-class oil and gas technical services company with an
+                a wholly Nigerian-owned integrated oilfield services company with an
                 indigenous workforce of over 2,500 professionals—99% of whom are Nigerian—underscoring
-                our commitment to local content and national capacity building.
+                our commitment to local content development, technology transfer, and national capacity building.
               </p>
               <p className="text-gray-600 mb-12">
                 Through strategic joint ventures, including Shelf Drilling Nigeria and Genesis Kreuz Subsea,
-                we strengthen our technical expertise and extend our service capabilities. Guided by a &quot;Can-Do&quot; mindset,
-                we champion innovation, operational excellence, and strict regulatory compliance in every engagement.
+                we deliver comprehensive services across the entire oil and gas value chain. Driven by our &quot;Can-Do&quot; mindset,
+                we consistently provide innovative solutions, operational excellence, and strict regulatory compliance with a focus on
+                health, safety, and environmental standards in every project we undertake.
               </p>
               <Link
                 href="/about-us"

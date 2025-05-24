@@ -53,9 +53,10 @@ export default function About() {
           <div className="max-w-4xl mx-auto text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Vision</h1>
             <p className="text-md md:text-lg max-w-2xl mx-auto">
-              To be a world-class Oil and Gas Development company. Delivering
-              exceptional value through continuous innovation, expertise, and
-              commitment to excellence.
+              To be the leading Nigerian integrated oilfield services company delivering 
+              exceptional value through continuous innovation, technical expertise, 
+              commitment to Nigerian content development, and unwavering excellence
+              in all our operations.
             </p>
           </div>
         </div>
