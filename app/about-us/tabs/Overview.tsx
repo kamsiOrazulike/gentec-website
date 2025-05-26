@@ -35,20 +35,6 @@ const OverviewContent = () => {
     <div className="p-4 md:p-8 space-y-8 md:space-y-12">
       {/* Main Overview Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
-        {/* Image Section - responsive sizing */}
-        <div className="relative flex flex-col justify-between">
-          <img
-            src="/static/media/warehouse10.png"
-            alt="GENTEC Operations"
-            className="w-full mb-2 h-full object-cover rounded-lg"
-          />
-          <img
-            src="/static/media/warehouse4.png"
-            alt="GENTEC Operations"
-            className="w-full h-full object-cover rounded-lg"
-          />
-        </div>
-
         {/* Company Description */}
         <div className="space-y-4 md:space-y-6">
           <h2 className="text-xl md:text-2xl font-bold text-gray-900 mb-2 md:mb-4">
