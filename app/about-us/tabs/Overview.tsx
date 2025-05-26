@@ -51,8 +51,7 @@ const OverviewContent = () => {
           </p>
 
           <p className="text-gray-600 text-sm md:text-md mb-4 md:mb-6">
-            Through strategic joint ventures, including Shelf Drilling Nigeria and Genesis
-            Kreuz Subsea, we strengthen our technical expertise and extend our service
+            Through strategic joint ventures, including Shelf Drilling Nigeria, we strengthen our technical expertise and extend our service
             capabilities across the value chain. Since incorporation in 1997, GENTEC has 
             maintained a focus on creating value by consistently delivering safe, 
             reliable services with technical excellence. Our "Can-Do" mindset drives 
