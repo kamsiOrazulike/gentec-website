@@ -98,7 +98,7 @@ const Navbar = () => {
             <div className="flex-shrink-0 flex items-center z-50 relative">
               <Link href="/" className="flex items-center space-x-2">
                 <Image
-                  src="/logo2.svg"
+                  src="/static/logo2.png"
                   alt="Gentec Logo"
                   width={120}
                   height={60}
