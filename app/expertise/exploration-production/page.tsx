@@ -3,7 +3,7 @@
 
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { Droplets, Gauge, BarChart3Icon } from "lucide-react";
+import { Droplets, Gauge } from "lucide-react";
 import Scrollbutton from "@/components/ScrollButton";
 
 const ExplorationProductionContent = () => {
@@ -242,93 +242,6 @@ const ExplorationProductionContent = () => {
                     </li>
                   </ul>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Data Quality and Drill Stem Tests Section */}
-      <div className="bg-gray-50 py-16">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-3 px-4 py-2 bg-red-50 text-red-600 rounded-full mb-4">
-              <BarChart3Icon className="w-5 h-5" />
-              <span className="font-semibold">Excellent Quality Data</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Advanced Seismic and Well Data Analysis
-            </h2>
-            <p className="text-gray-600 text-lg max-w-3xl mx-auto">
-              Our comprehensive data analysis validates key hydrocarbon-bearing
-              reservoirs and demonstrates exceptional well deliverability.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="relative h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
-              <Image
-                src="/static/media/data1.png"
-                alt="Seismic to Well Ties"
-                fill
-                className="object-contain bg-white"
-                quality={90}
-              />
-              <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                <div className="text-white text-center">
-                  <h3 className="text-2xl font-bold mb-4">
-                    Seismic to Well Ties
-                  </h3>
-                  <p>
-                    Our advanced geological analysis validates the key
-                    hydrocarbon-bearing reservoirs through precise seismic to
-                    well correlations.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="relative h-[600px] rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
-              <Image
-                src="/static/media/data2.png"
-                alt="Well Log Data"
-                fill
-                className="object-contain bg-white"
-                quality={90}
-              />
-              <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-                <div className="text-white text-center">
-                  <h3 className="text-2xl font-bold mb-4">Drill Stem Tests</h3>
-                  <p>
-                    Comprehensive drill stem tests have conclusively proven the
-                    well deliverability, demonstrating a production capacity of
-                    approximately 3,000 barrels per day.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-12 bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Seismic Integration
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Precise correlation between seismic data and well logs
-                  validates the key hydrocarbon-bearing reservoirs, ensuring
-                  accurate geological interpretation.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  Reservoir Potential
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Advanced analysis demonstrates the significant hydrocarbon
-                  potential, with drill stem tests confirming substantial
-                  production capabilities.
-                </p>
               </div>
             </div>
           </div>
