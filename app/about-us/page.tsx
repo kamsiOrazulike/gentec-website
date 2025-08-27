@@ -49,10 +49,10 @@ export default function About() {
       {/* Content Container */}
       <div className="relative z-10">
         {/* Vision Section */}
-        <div className="relative py-20">
+        <div className="relative pb-12 pt-32">
           <div className="max-w-4xl mx-auto text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Vision</h1>
-            <p className="text-md md:text-lg max-w-2xl mx-auto">
+            <p className="text-md md:text-lg max-w-6xl mx-auto">
               To be the leading Nigerian integrated oilfield services company delivering 
               exceptional value through continuous innovation, technical expertise, 
               commitment to Nigerian content development, and unwavering excellence

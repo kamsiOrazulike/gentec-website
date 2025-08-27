@@ -5,16 +5,12 @@ import TimelineContent from "./Timeline";
 
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-red-950 to-red-800 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-20" style={{ zIndex: 0 }}>
-        <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-red-600 filter blur-3xl"></div>
-        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-yellow-600 filter blur-3xl"></div>
-      </div>
+    <main className="min-h-screen bg-amber-600 relative overflow-hidden">
+      {/* Solid gold background instead of gradient and shapes */}
 
       {/* Hero Section */}
-      <section className="relative h-[30vh] z-10 flex items-center justify-center">
-        <div className="text-center text-white px-4 pt-24">
+      <section className="relative h-[40vh] z-10 flex items-center justify-center">
+        <div className="text-center text-white px-4 pt-36 md:pt-40">
           <h1 className="text-4xl md:text-6xl font-bold mb-4">
             Projects & Achievements
           </h1>
@@ -26,6 +22,13 @@ export default function ProjectsPage() {
 
       {/* Content Container */}
       <div className="bg-transparent min-h-screen relative z-20 py-12 px-4 md:px-12">
+        <div className="max-w-7xl mx-auto mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-white text-center mb-8">Celebrating Excellence & Innovation</h2>
+          <p className="text-white/90 text-lg text-center max-w-3xl mx-auto">
+            Explore our journey of achievements and landmark projects that showcase our commitment to excellence, 
+            innovation, and sustainable growth in the industry.
+          </p>
+        </div>
         <TimelineContent />
       </div>
 

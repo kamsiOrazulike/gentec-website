@@ -9,18 +9,18 @@ const TimelineContent: React.FC = () => {
         {sortedTimelineData.map((item: TimelineItem, index: number) => (
           <div
             key={index}
-            className="bg-white/10 border border-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl"
+            className="bg-white/20 border border-white/30 rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl backdrop-blur-sm"
           >
             {/* Card Header */}
-            <div className="bg-red-600 text-white p-4 flex justify-between items-center">
+            <div className={`${item.type === "achievement" ? "bg-amber-800" : "bg-amber-700"} text-white p-4 flex justify-between items-center`}>
               <div>
                 <span className="text-sm font-medium">{item.year}</span>
                 <h3 className="text-lg font-bold">
                   {item.type === "project" ? item.client : item.organization}
                 </h3>
               </div>
-              <div className="bg-red-100 rounded-full p-2 w-10 h-10 flex items-center justify-center">
-                <item.icon className="w-5 h-5 text-red-600" />
+              <div className="bg-amber-100 rounded-full p-2 w-10 h-10 flex items-center justify-center">
+                <item.icon className="w-5 h-5 text-amber-800" />
               </div>
             </div>
 
@@ -36,7 +36,7 @@ const TimelineContent: React.FC = () => {
               {/* Location for projects */}
               {item.type === "project" && item.location && (
                 <div className="flex items-center text-white">
-                  <MapPin className="w-4 h-4 mr-2 text-red-500" />
+                  <MapPin className="w-4 h-4 mr-2 text-amber-300" />
                   <span>{item.location}</span>
                 </div>
               )}

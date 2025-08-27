@@ -48,14 +48,14 @@ const ESGContent = () => {
   
   return (
     <div>
-      <div className="bg-green-900 relative overflow-hidden">
+      <div className="bg-[#006400] relative overflow-hidden">
         <div className="container mx-auto px-4 pt-32 pb-16 relative z-10">
           <div className="-mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             {/* Left Column - Text Content */}
             <div className="text-white space-y-6 order-2 lg:order-1">
-              <h2 className="text-xl tracking-wider text-green-300 font-light">2025 Gentec profile</h2>
+              <h2 className="text-xl tracking-wider text-green-200 font-light">2025 Gentec profile</h2>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Environmental, Social and Governance <span className="text-green-300">(ESG)</span>
+                Environmental, Social and Governance <span className="text-green-200">(ESG)</span>
               </h1>
               
               <p className="text-white/90 text-lg max-w-2xl leading-relaxed mt-4">
@@ -70,21 +70,21 @@ const ESGContent = () => {
               <div className="pt-6 flex flex-wrap gap-4">
                 <a
                   href="#environmental"
-                  className="px-6 py-3 bg-green-600 hover:bg-green-700 text-white font-medium rounded-md transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 bg-green-700 hover:bg-green-800 text-white font-medium rounded-md transition-colors flex items-center justify-center gap-2"
                 >
                   <LeafIcon className="w-5 h-5" />
                   <span>Environmental</span>
                 </a>
                 <a
                   href="#social"
-                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-green-300/30 transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-green-200/30 transition-colors flex items-center justify-center gap-2"
                 >
                   <UsersIcon className="w-5 h-5" />
                   <span>Social</span>
                 </a>
                 <a
                   href="#governance"
-                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-green-300/30 transition-colors flex items-center justify-center gap-2"
+                  className="px-6 py-3 bg-white/10 hover:bg-white/20 text-white font-medium rounded-md backdrop-blur-sm border border-green-200/30 transition-colors flex items-center justify-center gap-2"
                 >
                   <ScaleIcon className="w-5 h-5" />
                   <span>Governance</span>
