@@ -48,11 +48,21 @@ export default function About() {
 
       {/* Content Container */}
       <div className="relative z-10">
+<<<<<<< HEAD
         {/* Vision Section */}
         <div className="relative pb-12 pt-32">
           <div className="max-w-4xl mx-auto text-center text-white px-4">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Vision</h1>
             <p className="text-md md:text-lg max-w-6xl mx-auto">
+=======
+        {/* Vision Section - Mobile Optimized */}
+        <div className="relative pt-28 pb-12 sm:pt-32 sm:pb-16 md:py-20">
+          <div className="max-w-4xl mx-auto text-center text-white px-6 sm:px-8 md:px-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight">
+              Our Vision
+            </h1>
+            <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed sm:leading-relaxed">
+>>>>>>> 91c65d1c62d26e1169dcb7645daf99b97edff54c
               To be the leading Nigerian integrated oilfield services company delivering 
               exceptional value through continuous innovation, technical expertise, 
               commitment to Nigerian content development, and unwavering excellence
